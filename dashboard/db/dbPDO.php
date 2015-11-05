@@ -147,7 +147,7 @@ $results_spend_rev_chart_JSON = json_encode($results_spend_rev_chart);
 //function to get yesterday revenue
 function getYesterdayRevenue($results){
 foreach($results as $spend_date){
-    if($spend_date->y == '2015-10-29'){
+    if($spend_date->y == $yesterday){
         echo $spend_date->a;
         break;
       }
