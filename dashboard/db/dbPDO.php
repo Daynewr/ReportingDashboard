@@ -1,4 +1,13 @@
 <?php
+//setting day vars
+$today = date("Y-m-d");
+$yesterday = date("Y-m-d", time() - 60 *  60 *  24);
+
+$d = new DateTime('first day of this month');
+$first_day_month = $d->format('Y-m-d');
+
+$d = new DateTime('first day of last month');
+$first_day_last_month = $d->format('Y-m-d');
 
   error_reporting(E_ALL);
   ini_set('display_errors', 1);
@@ -88,16 +97,6 @@
 //        INTERACT WITH GOOGLE          //
 //        INSTALL TABLE                 //
 //                                      //
-
-//setting day vars
-$today = date("Y-m-d");
-$yesterday = date("Y-m-d", time() - 60 *  60 *  24);
-
-$d = new DateTime('first day of this month');
-$first_day_month = $d->format('Y-m-d');
-
-$d = new DateTime('first day of last month');
-$first_day_last_month = $d->format('Y-m-d');
 
 //query table data get_google_overview_chart(game_id, result_amount)
 // INSTALL CHART
