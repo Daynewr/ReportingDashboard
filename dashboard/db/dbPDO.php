@@ -89,6 +89,16 @@
 //        INSTALL TABLE                 //
 //                                      //
 
+//setting day vars
+$today = date("Y-m-d");
+$yesterday = date("Y-m-d", time() - 60 *  60 *  24);
+
+$d = new DateTime('first day of this month');
+$first_day_month = $d->format('Y-m-d');
+
+$d = new DateTime('first day of last month');
+$first_day_last_month = $d->format('Y-m-d');
+
 //query table data get_google_overview_chart(game_id, result_amount)
 // INSTALL CHART
 
@@ -112,20 +122,7 @@ $q_table3->execute();
 $results_rev_period = $q_table3->fetchAll(PDO::FETCH_CLASS);
 
 
-//convert results_gplayinstalls into an JSON object for JS usage
-//$results_gplayinstalls_JSON = json_encode($results_gplayinstalls);
-
-
 //query table for install/unistall totals  get_todays_google_totals(game_id, date)
-$today = date("Y-m-d");
-$yesterday = date("Y-m-d", time() - 60 *  60 *  24);
-
-$d = new DateTime('first day of this month');
-$first_day_month = $d->format('Y-m-d');
-
-$d = new DateTime('first day of last month');
-$first_day_last_month = $d->format('Y-m-d');
-
 $q_table3 = $db->prepare('call get_todays_google_totals(1,"'.$today.'");');
 $q_table3->execute();
 $results_gplayinstalls_top = $q_table3->fetchAll(PDO::FETCH_CLASS);
