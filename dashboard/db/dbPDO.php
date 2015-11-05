@@ -9,8 +9,8 @@ $first_day_month = $d->format('Y-m-d');
 $d = new DateTime('first day of last month');
 $first_day_last_month = $d->format('Y-m-d');
 
-  error_reporting(E_ALL);
-  ini_set('display_errors', 1);
+  //error_reporting(E_ALL);
+  //ini_set('display_errors', 1);
   //setup new PDO class
   if(!$db) {
     $db = new PDO('mysql:host=localhost;dbname=spyrgdb;charset=utf8', 'root', '');

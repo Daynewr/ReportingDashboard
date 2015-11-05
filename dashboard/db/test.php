@@ -33,6 +33,7 @@ foreach($results_spend_rev_chart as $spend_date){
 }
 */
 
+
 echo $today;
 
 //var_dump($results_spend_period);
