@@ -126,18 +126,18 @@ $first_day_month = $d->format('Y-m-d');
 $d = new DateTime('first day of last month');
 $first_day_last_month = $d->format('Y-m-d');
 
-$q_table3 = $db->prepare('call get_todays_google_totals(1,"'.$today.'");');
+$q_table3 = $db->prepare('call get_todays_google_totals(1,"2015-10-31");');
 $q_table3->execute();
 $results_gplayinstalls_top = $q_table3->fetchAll(PDO::FETCH_CLASS);
 
 //get impressions and spend get_singleday_impressions_spend(game_id, date)
-$q_table3 = $db->prepare('call get_singleday_impressions_spend(1,"'.$today.'");');
+$q_table3 = $db->prepare('call get_singleday_impressions_spend(1,"2015-10-28");');
 $q_table3->execute();
 $results_impr_spend = $q_table3->fetchAll(PDO::FETCH_CLASS);
 
 
 //get spend and revenue daily number get_spend_rev_data(game_id, start_date, end_date);
-$q_table3 = $db->prepare('call get_spend_rev_data(1, "'.$first_day_last_month.'", "'.$today.'");');
+$q_table3 = $db->prepare('call get_spend_rev_data(1, "2015-10-01", "2015-10-31");');
 $q_table3->execute();
 $results_spend_rev_chart = $q_table3->fetchAll(PDO::FETCH_CLASS);
 
