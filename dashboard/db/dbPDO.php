@@ -4,7 +4,7 @@
   //ini_set('display_errors', 1);
   //setup new PDO class
   if(!$db) {
-    $db = new PDO('mysql:host=localhost;dbname=spyrgdb;charset=utf8', 'spyrgadm', '!7sHCa8c9as!sAd’');
+    $db = new PDO('mysql:host=localhost;dbname=spyrgdb;charset=utf8', 'root', '');
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   }
 
