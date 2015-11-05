@@ -1,11 +1,11 @@
 <?php
 
-  //error_reporting(E_ALL);
-  //ini_set('display_errors', 1);
+  error_reporting(E_ALL);
+  ini_set('display_errors', 0);
   //setup new PDO class
   if(!$db) {
     $db = new PDO('mysql:host=localhost;dbname=spyrgdb;charset=utf8', 'root', '');
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    //$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   }
 
 ////////////////////////////////////////
