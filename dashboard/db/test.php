@@ -33,10 +33,7 @@ foreach($results_spend_rev_chart as $spend_date){
 }
 */
 
-$the_date = "2015-10-29";
-foreach($results_spend_rev_chart as $spend_date){
-  $spend_date->y == $the_date ? echo $spend_date->b : echo $yesterday;
-}
+echo $today;
 
 //var_dump($results_spend_period);
 

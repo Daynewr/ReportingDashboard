@@ -126,7 +126,7 @@ $first_day_month = $d->format('Y-m-d');
 $d = new DateTime('first day of last month');
 $first_day_last_month = $d->format('Y-m-d');
 
-$q_table3 = $db->prepare('call get_todays_google_totals(1,"2015-10-31");');
+$q_table3 = $db->prepare('call get_todays_google_totals(1,"'.$today.'");');
 $q_table3->execute();
 $results_gplayinstalls_top = $q_table3->fetchAll(PDO::FETCH_CLASS);
 
