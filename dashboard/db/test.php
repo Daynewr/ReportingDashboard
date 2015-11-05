@@ -19,7 +19,7 @@
 
   var_dump($results_gplayinstalls_top);
 */
-var_dump($results_spend_rev_chart);
+//var_dump($results_spend_rev_chart);
 
 //echo $results_spend_rev_chart[0]->y;
 //echo $yesterday;
