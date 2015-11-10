@@ -114,7 +114,7 @@ module.exports = {
                     case 'get_UNDERGROUND_event_inserts':
                     case 'get_DESERT_event_inserts':
                     case 'get_ISLAND_event_inserts':
-                        parameters.callback(parameters.res, db_insert_helper.get_stage_event_inserts(responseBody, format));
+                        parameters.callback(parameters.res, db_insert_helper.get_stage_event_inserts(responseBody, parameters.event_name));
                         break;
                     case 'get_REVENUE_event_inserts':
                         parameters.callback(parameters.res, db_insert_helper.get_REVENUE_event_inserts(responseBody, format));
@@ -135,7 +135,7 @@ module.exports = {
                     case 'get_UNDERGROUND_event_report':
                     case 'get_DESERT_event_report':
                     case 'get_ISLAND_event_report':
-                        parameters.callback(parameters.res, report_helper.get_stage_event_report(responseBody, format));
+                        parameters.callback(parameters.res, report_helper.get_stage_event_report(responseBody, parameters.event_name));
                         break;                        
                     case 'get_REVENUE_event_report':
                         parameters.callback(parameters.res, report_helper.get_REVENUE_event_report(responseBody, format));

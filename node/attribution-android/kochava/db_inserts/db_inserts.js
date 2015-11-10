@@ -61,14 +61,103 @@ module.exports = {
     },
    get_shop_event_inserts: function(responseBody, format){
         var buffer = '';
+        responseBody[0].Data.forEach(function (element, index, array){
+            buffer += "call add_kochava_stage_event('"+
+                    element.dev_id+"','"+
+                    element.att_camp+"','"+
+                    element.att_caid+"','"+
+                    element.att_tier+"','"+
+                    element.att_trac+"','"+
+                    element.att_netw+"','"+
+                    element.att_site+"','"+
+                    element.att_crea+"','"+
+                    element.dev_type+"','"+
+                    element.dev_os+"','"+
+                    element.eng_acqu+"','"+
+                    element.eng_sess+"','"+
+                    element.eng_dura+"','"+
+                    element.geo_code+"','"+
+                    element.geo_city+"','"+
+                    element.eve_time+"','"+
+                    element.eve_date+"','"+
+                    element.eve_data+"','"+
+                    element.eve_sum+"','"+
+                    element.adid+"','"+
+                    element.mac+"','"+
+                    element.odin+"','"+
+                    element.android_id+"','"+
+                    element.action+"','"+
+                    element.label+"','"+
+                    element.coins+"','"+
+                    element.status+"');"+
+                    "<br>";
+        });
         return buffer;
     }, 
    get_stage_event_inserts: function(responseBody, format){
         var buffer = '';
+        responseBody[0].Data.forEach(function (element, index, array){
+            buffer += "call add_kochava_stage_event('"+
+                    format+"','"+
+                    element.dev_id+"','"+
+                    element.att_camp+"','"+
+                    element.att_caid+"','"+
+                    element.att_tier+"','"+
+                    element.att_trac+"','"+
+                    element.att_netw+"','"+
+                    element.att_site+"','"+
+                    element.att_crea+"','"+
+                    element.dev_type+"','"+
+                    element.dev_os+"','"+
+                    element.eng_acqu+"','"+
+                    element.eng_sess+"','"+
+                    element.eng_dura+"','"+
+                    element.geo_code+"','"+
+                    element.geo_city+"','"+
+                    element.eve_time+"','"+
+                    element.eve_date+"','"+
+                    element.eve_data+"','"+
+                    element.eve_sum+"','"+
+                    element.adid+"','"+
+                    element.mac+"','"+
+                    element.odin+"','"+
+                    element.android_id+"','"+
+                    element.action+"','"+
+                    element.level+"');"+
+                    "<br>";
+        });
         return buffer;
     }, 
    get_REVENUE_event_inserts: function(responseBody, format){
         var buffer = '';
+        responseBody[0].Data.forEach(function (element, index, array){
+            buffer += "call add_kochava_revenue_event('"+
+                    element.dev_id+"','"+
+                    element.att_camp+"','"+
+                    element.att_caid+"','"+
+                    element.att_tier+"','"+
+                    element.att_trac+"','"+
+                    element.att_netw+"','"+
+                    element.att_site+"','"+
+                    element.att_crea+"','"+
+                    element.dev_type+"','"+
+                    element.dev_os+"','"+
+                    element.eng_acqu+"','"+
+                    element.eng_sess+"','"+
+                    element.eng_dura+"','"+
+                    element.geo_code+"','"+
+                    element.geo_city+"','"+
+                    element.eve_time+"','"+
+                    element.eve_date+"','"+
+                    element.eve_data+"','"+
+                    element.eve_sum+"','"+
+                    element.adid+"','"+
+                    element.mac+"','"+
+                    element.odin+"','"+
+                    element.android_id+"','"+
+                    element.action+"');"+
+                    "<br>";
+        });
         return buffer;
     }, 
 };
