@@ -71,10 +71,6 @@ app.get('//get_REVENUE_event_inserts_android', function(req, res){
     var parameters = {};
     initParameters(req, res, parameters);
     attribution_android.get_REVENUE_event_inserts(parameters);
-attribution_android
-attribution_android
-attribution_android
-attribution_android
 });
 
 
