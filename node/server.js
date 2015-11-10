@@ -168,7 +168,7 @@ function initParameters(req, res, parameters){
     parameters.googleAnalyticsPropertyId = 'UA-61965663-6';
     parameters.googlePlayBundleId = 'com.spyrapps.runeguardian';
 }
-
-app.listen('8081')
-console.log('App is listening on port 8081');
+ 
+app.listen('3000')
+console.log('App is listening on port 3000');
 module.exports = app; 	
