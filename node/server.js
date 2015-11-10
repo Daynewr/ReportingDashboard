@@ -124,7 +124,7 @@ app.get('//doMagic', function(req, res){
     bucket.getFiles(function(err, files, nextQuery) {
         for(var i = 0; i<files.length; i++ ){
             if (files[i].metadata.name.toString().search(/installs.*runeguardian.*overview/i) != -1) {
-                console.log(files[i].metadata.name);
+                //console.log(files[i].metadata.name);
                 //bucket.file(files[i].metadata.name).download({destination: 'GooglePlayFiles/'+files[i].metadata.name}, function(err) {
                 //    if(err) console.log(err);
                 //});

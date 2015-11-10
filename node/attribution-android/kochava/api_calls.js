@@ -92,7 +92,7 @@ module.exports = {
         }
         
         async.parallel(requestQueue, function(){
-            console.log('finished all the requests');
+            //console.log('finished all the requests');
             if(sendResp){
                 parameters.callback(parameters.res, responseBody);
             }
@@ -131,7 +131,7 @@ function queue_request(url, desc) {
             }
             else
             {
-                console.log("Error in request for URL: "+url);
+                //console.log("Error in request for URL: "+url);
                 callback();
             }
         });

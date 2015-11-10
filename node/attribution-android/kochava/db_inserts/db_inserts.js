@@ -269,7 +269,6 @@ module.exports = {
            }
         });
 
-        console.log(format+' stage data for '+responseBody[0].Data[0].eve_date);
         for (var i = 0; i < 13; i++){
             buffer += counters[i].StartedLevel+'<br>';
             buffer += counters[i].PortalReached+'<br>';
