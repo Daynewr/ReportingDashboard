@@ -62,7 +62,7 @@ module.exports = {
    get_shop_event_inserts: function(responseBody, format){
         var buffer = '';
         responseBody[0].Data.forEach(function (element, index, array){
-            buffer += "call add_kochava_stage_event('"+
+            buffer += "call add_kochava_shop_event('"+
                     element.dev_id+"','"+
                     element.att_camp+"','"+
                     element.att_caid+"','"+

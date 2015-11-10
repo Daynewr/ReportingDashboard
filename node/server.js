@@ -73,6 +73,24 @@ app.get('//get_REVENUE_event_inserts_android', function(req, res){
     attribution_android.get_REVENUE_event_inserts(parameters);
 });
 
+app.get('//get_LAUNCH_event_inserts_android', function(req, res){
+    var parameters = {};
+    initParameters(req, res, parameters);
+    attribution_android.get_LAUNCH_event_inserts(parameters);
+});
+
+app.get('//get_LOG_SCREEN_event_inserts_android', function(req, res){
+    var parameters = {};
+    initParameters(req, res, parameters);
+    attribution_android.get_LOG_SCREEN_event_inserts(parameters);
+});
+
+app.get('//get_free_coins_award_event_inserts_android', function(req, res){
+    var parameters = {};
+    initParameters(req, res, parameters);
+    attribution_android.get_free_coins_award_event_inserts(parameters);
+});
+
 
 /*
  * Report Requests

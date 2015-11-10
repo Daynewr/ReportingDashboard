@@ -11,7 +11,7 @@ module.exports = {
             {
                 init(parameters);
                 kochava.enqueue_get_campaign_summary(parameters);
-                kochava.process_queue(parameters, true, 'get_campaign_summary_inserts');
+                kochava.process_queue(parameters, false, 'get_campaign_summary_inserts');
                 break;
             }
         }
@@ -33,7 +33,7 @@ module.exports = {
                 kochava.enqueue_get_installs(parameters);
                 parameters.campaign_id = 'korune-guardian----android56099e61e7d7b';
                 kochava.enqueue_get_installs(parameters);
-                kochava.process_queue(parameters, true, "get_campaign_install_inserts");
+                kochava.process_queue(parameters, false, "get_campaign_install_inserts");
                 break;
             }
         }
@@ -45,7 +45,7 @@ module.exports = {
                 init(parameters);
                 parameters.event_name = 'Shop Event';
                 kochava.enqueue_get_event_data(parameters);
-                kochava.process_queue(parameters, true, 'get_shop_event_inserts');
+                kochava.process_queue(parameters, false, 'get_shop_event_inserts');
                 break;
             }
         }
@@ -57,7 +57,7 @@ module.exports = {
                 init(parameters);
                 parameters.event_name = 'UNDERGROUND';
                 kochava.enqueue_get_event_data(parameters);
-                kochava.process_queue(parameters, true, 'get_UNDERGROUND_event_inserts');
+                kochava.process_queue(parameters, false, 'get_UNDERGROUND_event_inserts');
                 break;
             }
         }
@@ -69,7 +69,7 @@ module.exports = {
                 init(parameters);
                 parameters.event_name = 'DESERT';
                 kochava.enqueue_get_event_data(parameters);
-                kochava.process_queue(parameters, true, 'get_DESERT_event_inserts');
+                kochava.process_queue(parameters, false, 'get_DESERT_event_inserts');
                 break;
             }
         }
@@ -81,7 +81,7 @@ module.exports = {
                 init(parameters);
                 parameters.event_name = 'ISLAND';
                 kochava.enqueue_get_event_data(parameters);
-                kochava.process_queue(parameters, true, 'get_ISLAND_event_inserts');
+                kochava.process_queue(parameters, false, 'get_ISLAND_event_inserts');
                 break;
             }
         }
@@ -93,11 +93,48 @@ module.exports = {
                 init(parameters);
                 parameters.event_name = 'REVENUE';
                 kochava.enqueue_get_event_data(parameters);
-                kochava.process_queue(parameters, true, 'get_REVENUE_event_inserts');
+                kochava.process_queue(parameters, false, 'get_REVENUE_event_inserts');
+                break;
+            }
+        }
+    },  
+    get_LAUNCH_event_inserts: function(parameters){
+        switch (parameters.attributionService){
+            case 'Kochava': 
+            {
+                init(parameters);
+                parameters.event_name = 'Launch';
+                kochava.enqueue_get_event_data(parameters);
+                kochava.process_queue(parameters, true, 'get_LAUNCH_event_inserts');
+                break;
+            }
+        }
+    },
+    get_LOG_SCREEN_event_inserts: function(parameters){
+        switch (parameters.attributionService){
+            case 'Kochava': 
+            {
+                init(parameters);
+                parameters.event_name = 'Launch';
+                kochava.enqueue_get_event_data(parameters);
+                kochava.process_queue(parameters, true, 'get_LOG_SCREEN_event_inserts');
+                break;
+            }
+        }
+    },
+    get_free_coins_award_event_inserts: function(parameters){
+        switch (parameters.attributionService){
+            case 'Kochava': 
+            {
+                init(parameters);
+                parameters.event_name = 'Launch';
+                kochava.enqueue_get_event_data(parameters);
+                kochava.process_queue(parameters, true, 'get_free_coins_award_event_inserts');
                 break;
             }
         }
     },    
+    
 /*
  * Report Requests
  */
