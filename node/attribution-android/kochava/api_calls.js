@@ -98,23 +98,48 @@ module.exports = {
             }
             else
             {
-                if (format == 'Campaign Installs') {
-                    parameters.callback(parameters.res, report_helper.dump_campaign_installs_data(responseBody, format));
-                }
-                else if (format == 'Campaign Install Report') {
-                    parameters.callback(parameters.res, report_helper.dump_campaign_installs_report(responseBody, format));
-                }
-                else if(format == 'Campaign Summary'){
-                    parameters.callback(parameters.res, report_helper.dump_campaign_summary_data(responseBody, format));
-                }
-                else if (format == 'REVENUE') {
-                    parameters.callback(parameters.res, report_helper.dump_revenue_event_inserts(responseBody, format));
-                }
-                else if (format == 'REVENUE Report') {
-                    parameters.callback(parameters.res, report_helper.dump_revenue_report(responseBody, format));
-                }                
-                else if(format == 'UNDERGROUND' || format == 'DESERT' || format == 'ISLAND'){
-                    parameters.callback(parameters.res, report_helper.dump_stage_data(responseBody, format));
+                switch (format){
+                    /*
+                     * DB INSERT STATEMENTS
+                     */
+                    case 'get_campaign_summary_inserts':
+                        parameters.callback(parameters.res, db_insert_helper.get_campaign_summary_inserts(responseBody, format));
+                        break;    
+                    case 'get_campaign_install_inserts':
+                        parameters.callback(parameters.res, db_insert_helper.get_campaign_install_inserts(responseBody, format));
+                        break;
+                    case 'get_shop_event_inserts':
+                        parameters.callback(parameters.res, db_insert_helper.get_shop_event_inserts(responseBody, format));
+                        break;
+                    case 'get_UNDERGROUND_event_inserts':
+                    case 'get_DESERT_event_inserts':
+                    case 'get_ISLAND_event_inserts':
+                        parameters.callback(parameters.res, db_insert_helper.get_stage_event_inserts(responseBody, format));
+                        break;
+                    case 'get_REVENUE_event_inserts':
+                        parameters.callback(parameters.res, db_insert_helper.get_REVENUE_event_inserts(responseBody, format));
+                        break;
+                        
+                    /*
+                     * Report Requests
+                     */   
+                    case 'get_campaign_summary_report':
+                        parameters.callback(parameters.res, report_helper.get_campaign_summary_report(responseBody, format));
+                        break;
+                    case 'get_campaign_install_report':
+                        parameters.callback(parameters.res, report_helper.get_campaign_install_report(responseBody, format));
+                        break;
+                    case 'get_shop_event_report':
+                        parameters.callback(parameters.res, report_helper.get_shop_event_report(responseBody, format));
+                        break;
+                    case 'get_UNDERGROUND_event_report':
+                    case 'get_DESERT_event_report':
+                    case 'get_ISLAND_event_report':
+                        parameters.callback(parameters.res, report_helper.get_stage_event_report(responseBody, format));
+                        break;                        
+                    case 'get_REVENUE_event_report':
+                        parameters.callback(parameters.res, report_helper.get_REVENUE_event_report(responseBody, format));
+                        break;
                 }
             }
         },

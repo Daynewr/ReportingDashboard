@@ -28,76 +28,99 @@ app.get('//', function(req, res){
     res.send(response);
 });
 
-app.get('//get_campaign_summary_android', function(req, res){
+/*
+ * DB INSERT STATEMENTS
+ */
+app.get('//get_campaign_summary_inserts_android', function(req, res){
     var parameters = {};
-
     initParameters(req, res, parameters);
-
-    attribution_android.get_campaign_summary(parameters);
+    attribution_android.get_campaign_summary_inserts(parameters);
 });
 
-app.get('//get_campaign_installs_android', function(req, res){
+app.get('//get_campaign_install_inserts_android', function(req, res){
     var parameters = {};
-
     initParameters(req, res, parameters);
+    attribution_android.get_campaign_install_inserts(parameters);
+});
 
-    attribution_android.get_campaign_installs(parameters);
+app.get('//get_shop_event_inserts_android', function(req, res){
+    var parameters = {};
+    initParameters(req, res, parameters);
+    attribution_android.get_shop_event_inserts(parameters);
+});
+
+app.get('//get_UNDERGROUND_event_inserts_android', function(req, res){
+    var parameters = {};
+    initParameters(req, res, parameters);
+    attribution_android.get_UNDERGROUND_event_inserts(parameters);
+});
+
+app.get('//get_DESERT_event_inserts_android', function(req, res){
+    var parameters = {};
+    initParameters(req, res, parameters);
+    attribution_android.get_DESERT_event_inserts(parameters);
+});
+
+app.get('//get_ISLAND_event_inserts_android', function(req, res){
+    var parameters = {};
+    initParameters(req, res, parameters);
+    attribution_android.get_ISLAND_event_inserts(parameters);
+});
+
+app.get('//get_REVENUE_event_inserts_android', function(req, res){
+    var parameters = {};
+    initParameters(req, res, parameters);
+    attribution_android.get_REVENUE_event_inserts(parameters);
+attribution_android
+attribution_android
+attribution_android
+attribution_android
+});
+
+
+/*
+ * Report Requests
+ */
+app.get('//get_campaign_summary_report_android', function(req, res){
+    var parameters = {};
+    initParameters(req, res, parameters);
+    attribution_android.get_campaign_summary_report(parameters);
 });
 
 app.get('//get_campaign_install_report_android', function(req, res){
     var parameters = {};
-
     initParameters(req, res, parameters);
-
     attribution_android.get_campaign_install_report(parameters);
 });
 
-app.get('//get_shop_events_android', function(req, res){
+app.get('//get_shop_event_report_android', function(req, res){
     var parameters = {};
-
     initParameters(req, res, parameters);
-
-    attribution_android.get_shop_events(parameters);
+    attribution_android.get_shop_event_report(parameters);
 });
 
-app.get('//get_UNDERGROUND_events_android', function(req, res){
+app.get('//get_UNDERGROUND_event_report_android', function(req, res){
     var parameters = {};
-
     initParameters(req, res, parameters);
-
-    attribution_android.get_UNDERGROUND_events(parameters);
+    attribution_android.get_UNDERGROUND_event_report(parameters);
 });
 
-app.get('//get_DESERT_events_android', function(req, res){
+app.get('//get_DESERT_event_report_android', function(req, res){
     var parameters = {};
-
     initParameters(req, res, parameters);
-
-    attribution_android.get_DESERT_events(parameters);
+    attribution_android.get_DESERT_event_report(parameters);
 });
 
-app.get('//get_ISLAND_events_android', function(req, res){
+app.get('//get_ISLAND_event_report_android', function(req, res){
     var parameters = {};
-
     initParameters(req, res, parameters);
-
-    attribution_android.get_ISLAND_events(parameters);
+    attribution_android.get_ISLAND_event_report(parameters);
 });
 
-app.get('//get_REVENUE_events_android', function(req, res){
+app.get('//get_REVENUE_event_report_android', function(req, res){
     var parameters = {};
-
     initParameters(req, res, parameters);
-
-    attribution_android.get_REVENUE_events(parameters);
-});
-
-app.get('//get_REVENUE_events_report_android', function(req, res){
-    var parameters = {};
-
-    initParameters(req, res, parameters);
-
-    attribution_android.get_REVENUE_events_report(parameters);
+    attribution_android.get_REVENUE_event_report(parameters);
 });
 
 /*
