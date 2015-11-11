@@ -28,3 +28,5 @@ node_modules
 
 #Temp files downloaded from Google Play Store API
 GooglePlayFiles
+
+*.espressostorage

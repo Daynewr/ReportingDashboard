@@ -142,6 +142,7 @@ $results_spend_rev_chart_JSON = json_encode($results_spend_rev_chart);
 
 //function to get yesterday revenue
 function getYesterdayRevenue($results){
+global $yesterday;
 foreach($results as $spend_date){
     if($spend_date->y == $yesterday){
         echo $spend_date->a;
@@ -152,6 +153,7 @@ foreach($results as $spend_date){
 
 //function to get last month revenue
 function getLastMonthRevenue($results){
+global $first_day_month, $first_day_last_month;
   $total_rev = 0;
   foreach($results as $spend_date){
     if($spend_date->y < $first_day_month && $spend_date->y >= $first_day_last_month){
@@ -163,6 +165,7 @@ function getLastMonthRevenue($results){
 
 //function to get this months revenue
 function getThisMonthRevenue($results){
+global $first_day_month;
   $total_rev = 0;
   foreach($results as $spend_date){
     if($spend_date->y >= $first_day_month){
@@ -174,6 +177,7 @@ function getThisMonthRevenue($results){
 
 //function to get last months spend
 function getLastMonthSpend($results){
+global $first_day_month, $first_day_last_month;
   $total_spend = 0;
   foreach($results as $spend_date){
     if($spend_date->y < $first_day_month && $spend_date->y >= $first_day_last_month){
@@ -185,6 +189,7 @@ function getLastMonthSpend($results){
 
 //function to get this months spend
 function getThisMonthSpend($results){
+global $first_day_month;
   $total_spend = 0;
   foreach($results as $spend_date){
     if($spend_date->y >= $first_day_month){
