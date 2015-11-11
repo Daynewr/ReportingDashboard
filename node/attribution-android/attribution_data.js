@@ -38,6 +38,18 @@ module.exports = {
             }
         }
     },
+    get_organic_install_event_inserts: function(parameters){
+        switch (parameters.attributionService){
+            case 'Kochava': 
+            {
+                init(parameters);
+                parameters.event_name = '_Install';
+                kochava.enqueue_get_event_data(parameters);
+                kochava.process_queue(parameters, false, 'get_organic_install_event_inserts');
+                break;
+            }
+        }        
+    },
     get_shop_event_inserts: function(parameters){
         switch (parameters.attributionService){
             case 'Kochava': 
@@ -103,7 +115,7 @@ module.exports = {
             case 'Kochava': 
             {
                 init(parameters);
-                parameters.event_name = 'Launch';
+                parameters.event_name = '_Install';
                 kochava.enqueue_get_event_data(parameters);
                 kochava.process_queue(parameters, true, 'get_LAUNCH_event_inserts');
                 break;
@@ -115,9 +127,9 @@ module.exports = {
             case 'Kochava': 
             {
                 init(parameters);
-                parameters.event_name = 'Launch';
+                parameters.event_name = 'Log Screen';
                 kochava.enqueue_get_event_data(parameters);
-                kochava.process_queue(parameters, true, 'get_LOG_SCREEN_event_inserts');
+                kochava.process_queue(parameters, false, 'get_LOG_SCREEN_event_inserts');
                 break;
             }
         }
@@ -127,9 +139,9 @@ module.exports = {
             case 'Kochava': 
             {
                 init(parameters);
-                parameters.event_name = 'Launch';
+                parameters.event_name = 'free_coins_award';
                 kochava.enqueue_get_event_data(parameters);
-                kochava.process_queue(parameters, true, 'get_free_coins_award_event_inserts');
+                kochava.process_queue(parameters, false, 'get_free_coins_award_event_inserts');
                 break;
             }
         }

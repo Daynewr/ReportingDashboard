@@ -43,6 +43,12 @@ app.get('//get_campaign_install_inserts_android', function(req, res){
     attribution_android.get_campaign_install_inserts(parameters);
 });
 
+app.get('//get_organic_install_event_inserts_android', function(req, res){
+    var parameters = {};
+    initParameters(req, res, parameters);
+    attribution_android.get_organic_install_event_inserts(parameters);
+});
+
 app.get('//get_shop_event_inserts_android', function(req, res){
     var parameters = {};
     initParameters(req, res, parameters);

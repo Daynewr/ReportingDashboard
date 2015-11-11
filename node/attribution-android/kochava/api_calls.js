@@ -108,6 +108,9 @@ module.exports = {
                     case 'get_campaign_install_inserts':
                         parameters.callback(parameters.res, db_insert_helper.get_campaign_install_inserts(responseBody, format));
                         break;
+                    case 'get_organic_install_event_inserts':
+                        parameters.callback(parameters.res, db_insert_helper.get_organic_install_event_inserts(responseBody, parameters.app_id));
+                        break;
                     case 'get_shop_event_inserts':
                         parameters.callback(parameters.res, db_insert_helper.get_shop_event_inserts(responseBody, format));
                         break;
@@ -118,6 +121,15 @@ module.exports = {
                         break;
                     case 'get_REVENUE_event_inserts':
                         parameters.callback(parameters.res, db_insert_helper.get_REVENUE_event_inserts(responseBody, format));
+                        break;
+                    case 'get_LAUNCH_event_inserts':
+                        parameters.callback(parameters.res, db_insert_helper.get_LAUNCH_event_inserts(responseBody, format));
+                        break;
+                    case 'get_LOG_SCREEN_event_inserts':
+                        parameters.callback(parameters.res, db_insert_helper.get_LOG_SCREEN_event_inserts(responseBody, format));
+                        break;
+                    case 'get_free_coins_award_event_inserts':
+                        parameters.callback(parameters.res, db_insert_helper.get_free_coins_award_event_inserts(responseBody, format));
                         break;
                         
                     /*
