@@ -6,7 +6,9 @@
   <script src="js/raphael-2.1.0.min.js"></script>
   <script src="js/morris.min.js"></script>
 
+  <script src="js/custom.js"></script>
   <script src="js/dashboard.js"></script>
+
 
   <script src="js/jquery.datatables.min.js"></script>
   <script src="js/select2.min.js"></script>
@@ -48,10 +50,7 @@
 
       });
 
-        //jQuery('#table1').dataTable();
-        jQuery('#table2').dataTable({
-          "sPaginationType": "full_numbers"
-        });
+        jQuery('.table-data').dataTable();
 
       // Select2
       /*jQuery('select').select2({
@@ -96,7 +95,7 @@
                 hideHover: true
               });
 
-              var barObj = <?php echo $results_spend_rev_chart_JSON ?>;
+              /*var barObj = <?php echo $results_spend_rev_chart_JSON ?>;
 
               var m3 = new Morris.Bar({
             		// ID of the element in which to draw the chart.
@@ -112,7 +111,7 @@
             		fillOpacity: 0.8,
             		smooth: false,
             		hideHover: true
-            	});
+            	});*/
 
     });
   </script>

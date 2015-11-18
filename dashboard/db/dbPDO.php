@@ -277,7 +277,31 @@ function sidebarTotalAdSpend($table){
   return $totalAdSpend;
 }
 */
+//////////////////////////////////////////
+//                                      //
+//    FUNCTION TO CREATE TABLES         //
+//                                      //
 
+function createTableDataSQL($sqlcall){
+  if(!$db) {
+    $db = new PDO('mysql:host=dev.spyrgames.com;port=3306;dbname=spyrgdb;charset=utf8', 'spyrgadm', '!7sHCa8c9as!sAd’');
+  };
+  //query table
+  $q = $db->prepare($sqlcall);
+  $q->execute();
+  $results = $q->fetchAll(PDO::FETCH_CLASS);
+
+  //build up data from results
+  $buffer  = "<thead><tr>";
+  foreach ($results[0] as $key => $value) { $buffer .="<th>".$key."</th>"; }
+  $buffer .= "</tr></thead><tbody>";
+  foreach($results as $obj_set) { $buffer .= "<tr>";
+    foreach($obj_set as $row => $item){ $buffer .="<td id='$row'>".$item."</td>";}
+    $buffer .="</tr>";
+  }
+  $buffer .= "</tbody>"; //Close the table in HTML
+      echo $buffer;
+}
 
 
 ?>

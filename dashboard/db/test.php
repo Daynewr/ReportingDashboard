@@ -2,6 +2,8 @@
 
   include('dbPDO.php');
 
+  var_dump($results_gplayinstalls_top);
+
 /*
   $monday = strtotime('last monday', strtotime('tomorrow'));
   $startOfWeek = date('Y-m-d',strtotime('last sunday'));

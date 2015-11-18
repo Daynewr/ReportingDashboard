@@ -47,83 +47,21 @@
 
       <h5 class="sidebartitle">Navigation</h5>
       <ul class="nav nav-pills nav-stacked nav-bracket">
-        <li class="active"><a href="index.php"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
-        <li><a href="add-account.php"><i class="glyphicon glyphicon-cog"></i> <span>Add Accounts</span></a></li>
+        <li class="active"><a href="index.php"><i class="fa fa-home"></i> <span> Main Dashboard</span></a></li>
+        <li class="nav-parent"><a href=""><i class="fa fa-edit"></i> <span>Drill Down</span></a>
+          <ul class="children">
+            <li><a href="sub-revenue.php"><i class="fa fa-caret-right"></i> Revenue Data</a></li>
+            <li><a href="sub-cost.php"><i class="fa fa-caret-right"></i> Cost Data</a></li>
+            <li><a href="sub-google.php"><i class="fa fa-caret-right"></i> Google Data</a></li>
+            <li><a href="sub-analysis.php"><i class="fa fa-caret-right"></i> CPI Analysis</a></li>
+            <li><a href="sub-kochava.php"><i class="fa fa-caret-right"></i> Kochava Data</a></li>
+            <li><a href="sub-display.php"><i class="fa fa-caret-right"></i> Display Search+UAC</a></li>
+          </ul>
+        </li>
+        <!--<li><a href="add-account.php"><i class="glyphicon glyphicon-cog deactive"></i> <span>Add Accounts</span></a></li>-->
         <li><a href="register-user.php"><i class="glyphicon glyphicon-user"></i> <span>Register User</span></a></li>
-        <li><a href="help.php"><i class="glyphicon glyphicon-question-sign"></i><span>Help</span></a></li>
         <li><a href="loginform.php?action=logout"><i class="glyphicon glyphicon-log-out"></i><span>Log Out</span></a></li>
       </ul>
-
-      <div class="infosummary">
-        <h5 class="sidebartitle">Weekly Stats</h5>
-        <ul>
-            <li>
-                <div class="datainfo">
-                    <span class="text-muted">Total Installs</span>
-                    <h4><?php/* echo $totalInstallsWeekly = sidebarTotalInstalls($results_weekly); */?></h4>
-                </div>
-            </li>
-            <li>
-                <div class="datainfo">
-                    <span class="text-muted">Total CLicks</span>
-                    <h4><?php/* echo $totalClicksWeekly = sidebarTotalClicks($results_weekly); */?></h4>
-                </div>
-            </li>
-            <li>
-                <div class="datainfo">
-                    <span class="text-muted">Percentage Install</span>
-                    <h4><?php /*echo $installPer = round((($totalInstallsWeekly/$totalClicksWeekly) * 100), 2, PHP_ROUND_HALF_UP); */?>%</h4>
-                </div>
-            </li>
-            <li>
-                <div class="datainfo">
-                    <span class="text-muted">Revenue</span>
-                    <h4>$1,234.53</h4>
-                </div>
-            </li>
-            <li>
-                <div class="datainfo">
-                    <span class="text-muted">Ad Spend</span>
-                    <h4>$<?php/* sidebarTotalAdSpend($results_weekly); */?></h4>
-                </div>
-
-            </li>
-        </ul>
-      </div><!-- infosummary -->
-
-      <div class="col-sm-12">
-        <span class="sublabel">Weekly Installs vs. Clicks (<?php /*echo $installPer; */?>%)</span>
-        <div class="progress progress-sm">
-          <div style="width: <?php/* echo $installPer; */?>%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar progress-bar-primary"></div>
-        </div><!-- progress -->
-
-        <span class="sublabel">Memory Usage (32.2%)</span>
-        <div class="progress progress-sm">
-          <div style="width: 32%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar progress-bar-success"></div>
-        </div><!-- progress -->
-
-        <span class="sublabel">Disk Usage (82.2%)</span>
-        <div class="progress progress-sm">
-          <div style="width: 82%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar progress-bar-danger"></div>
-        </div><!-- progress -->
-
-        <span class="sublabel">Databases (63/100)</span>
-        <div class="progress progress-sm">
-          <div style="width: 63%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar progress-bar-warning"></div>
-        </div><!-- progress -->
-
-        <span class="sublabel">Domains (2/10)</span>
-        <div class="progress progress-sm">
-          <div style="width: 20%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar progress-bar-success"></div>
-        </div><!-- progress -->
-
-        <span class="sublabel">Email Account (13/50)</span>
-        <div class="progress progress-sm">
-          <div style="width: %" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar progress-bar-success"></div>
-        </div><!-- progress -->
-
-
-      </div><!-- col-sm-4 -->
 
     </div><!-- leftpanelinner -->
   </div><!-- leftpanel -->
