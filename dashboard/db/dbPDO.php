@@ -284,7 +284,7 @@ function sidebarTotalAdSpend($table){
 
 function createTableDataSQL($sqlcall){
   if(!$db) {
-    $db = new PDO('mysql:host=dev.spyrgames.com;port=3306;dbname=spyrgdb;charset=utf8', 'spyrgadm', '!7sHCa8c9as!sAd’');
+    $db = new PDO('mysql:host=localhost;dbname=spyrgdb;charset=utf8', 'root', '');
   };
   //query table
   $q = $db->prepare($sqlcall);
