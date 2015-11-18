@@ -38,7 +38,7 @@
                   </div>
                   <div class="col-xs-8">
                     <small class="stat-label">Yesterday's Installs</small>
-                    <h1><?php echo $results_gplayinstalls_top[0]->daily_installs ?></h1>
+                    <h1><?php echo (!isset($results_gplayinstalls_top[0]->daily_installs) ? 'N/A' : $results_gplayinstalls_top[0]->daily_installs); ?></h1>
                   </div>
                 </div><!-- row -->
 
@@ -46,11 +46,11 @@
                 <div class="row">
                   <div class="col-xs-6">
                     <small class="stat-label">Current Installs</small>
-                    <h4><?php echo $results_gplayinstalls_top[0]->current_installs ?></h4>
+                    <h4><?php echo (!isset($results_gplayinstalls_top[0]->current_installs) ? 'N/A' : $results_gplayinstalls_top[0]->current_installs); ?></h4>
                   </div>
                   <div class="col-xs-6">
                     <small class="stat-label">Lifetime Installs</small>
-                    <h4><?php echo $results_gplayinstalls_top[0]->lifetime_installs ?></h4>
+                    <h4><?php echo (!isset($results_gplayinstalls_top[0]->lifetime_installs) ? 'N/A' : $results_gplayinstalls_top[0]->lifetime_installs); ?></h4>
                   </div>
                 </div><!-- row -->
               </div><!-- stat -->
@@ -70,7 +70,7 @@
                   </div>
                   <div class="col-xs-8">
                     <small class="stat-label">Yesterday's Clicks</small>
-                    <h1><?php echo $results_impr_spend[0]->kochava_today_clicks ?></h1>
+                    <h1><?php echo (!isset($results_impr_spend[0]->kochava_today_clicks) ? 'N/A' : $results_impr_spend[0]->kochava_today_clicks); ?></h1>
                   </div>
                 </div><!-- row -->
 
@@ -79,16 +79,17 @@
                 <div class="row">
                   <div class="col-xs-4">
                     <small class="stat-label">Impressions</small>
-                    <h4><?php echo $results_impr_spend[0]->impressions ?></h4>
+                    <h4><?php echo (!isset($results_impr_spend[0]->impressions) ? 'N/A' : $results_impr_spend[0]->impressions); ?></h4>
                   </div>
 
                   <div class="col-xs-4">
                     <small class="stat-label">CTR %</small>
-                    <h4><?php echo $results_impr_spend[0]->ctr ?>%</h4>
+
+                    <h4><?php echo (!isset($results_impr_spend[0]->ctr) ? 'N/A ' : $results_impr_spend[0]->ctr); ?>%</h4>
                   </div>
                   <div class="col-xs-4">
                     <small class="stat-label">Uninstalls</small>
-                    <h4><?php echo $results_gplayinstalls_top[0]->daily_uninstalls ?></h4>
+                    <h4><?php echo (!isset($results_gplayinstalls_top[0]->daily_uninstalls) ? 'N/A' : $results_gplayinstalls_top[0]->daily_uninstalls); ?></h4>
                   </div>
                 </div><!-- row -->
               </div><!-- stat -->
@@ -108,7 +109,7 @@
                   </div>
                   <div class="col-xs-8">
                     <small class="stat-label">Yesterday's Revenue</small>
-                    <h1>$<?php getYesterdayRevenue($results_spend_rev_chart); ?></h1>
+                    <h1>$<?php echo (!isset($results_spend_rev_chart) ? ' N/A' : getYesterdayRevenue($results_spend_rev_chart)); ?></h1>
                   </div>
                 </div><!-- row -->
 
@@ -116,12 +117,12 @@
                 <div class="row">
                   <div class="col-xs-6">
                     <small class="stat-label">This Month</small>
-                    <h4>$<?php getThisMonthRevenue($results_spend_rev_chart); ?></h4>
+                    <h4>$<?php echo (!isset($results_spend_rev_chart) ? ' N/A' : getThisMonthRevenue($results_spend_rev_chart)); ?></h4>
                   </div>
 
                   <div class="col-xs-6">
                     <small class="stat-label">Last Month</small>
-                    <h4>$<?php getLastMonthRevenue($results_spend_rev_chart); ?></h4>
+                    <h4>$<?php echo (!isset($results_spend_rev_chart) ? ' N/A' : getLastMonthRevenue($results_spend_rev_chart)); ?></h4>
                   </div>
                 </div><!-- row -->
               </div><!-- stat -->
@@ -142,7 +143,7 @@
                   </div>
                   <div class="col-xs-8">
                     <small class="stat-label">Yesterday's Spend</small>
-                    <h1>$<?php echo $results_impr_spend[0]->daily_spend ?></h1>
+                    <h1>$<?php echo (!isset($results_impr_spend[0]->daily_spend) ? ' N/A' : $results_impr_spend[0]->daily_spend); ?></h1>
                   </div>
                 </div><!-- row -->
 
@@ -151,12 +152,12 @@
                 <div class="row">
                   <div class="col-xs-6">
                     <small class="stat-label">This Month</small>
-                    <h4>$<?php getThisMonthSpend($results_spend_rev_chart); ?></h4>
+                    <h4>$<?php echo (!isset($results_spend_rev_chart) ? ' N/A' : getThisMonthSpend($results_spend_rev_chart)); ?></h4>
                   </div>
 
                   <div class="col-xs-6">
                     <small class="stat-label">Last Month</small>
-                    <h4>$<?php getLastMonthSpend($results_spend_rev_chart); ?></h4>
+                    <h4>$<?php echo (!isset($results_spend_rev_chart) ? ' N/A' : getLastMonthSpend($results_spend_rev_chart)); ?></h4>
                   </div>
                 </div><!-- row -->
 
