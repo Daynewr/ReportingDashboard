@@ -26,7 +26,7 @@
             <br />
             <div class="table-responsive">
             <table class="table table-striped table-data">
-                <?php createTableDataSQL('CALL DASH_fyber_revenue_total('.$_SESSION["game"].');'); ?>
+                <?php createTableDataSQL('CALL DASH_fyber_revenue_total('.$_SESSION["game"].', "'.$_SESSION["start_date"].'" , "'.$_SESSION["end_date"].'");'); ?>
             </table>
           </div>
         </div><!-- panel-body -->
@@ -42,7 +42,7 @@
             <br />
             <div class="table-responsive">
             <table class="table table-striped table-data">
-                <?php createTableDataSQL('CALL DASH_fyber_rev_totals_network('.$_SESSION["game"].');'); ?>
+                <?php createTableDataSQL('CALL DASH_fyber_rev_totals_network('.$_SESSION["game"].', "'.$_SESSION["start_date"].'" , "'.$_SESSION["end_date"].'");'); ?>
               </table>
               </div>
           </div><!-- panel-body -->
@@ -58,7 +58,7 @@
           <br />
           <div class="table-responsive">
           <table class="table table-striped table-data">
-              <?php createTableDataSQL('CALL DASH_fyber_rev_totals_network_date('.$_SESSION["game"].');'); ?>
+              <?php createTableDataSQL('CALL DASH_fyber_rev_totals_network_date('.$_SESSION["game"].', "'.$_SESSION["start_date"].'" , "'.$_SESSION["end_date"].'");'); ?>
             </table>
             </div>
         </div><!-- panel-body -->
