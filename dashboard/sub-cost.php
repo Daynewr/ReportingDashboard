@@ -111,6 +111,22 @@
               </div><!-- panel-body -->
             </div>
           </div><!-- contentpanel -->
+
+          <div class="contentpanel">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <div class="clearfix mb30"></div>
+                  <h3>Adwords Cost By Campaign (date)</h3>
+                  <div><p></p></div>
+                  <br />
+                  <div class="table-responsive">
+                  <table class="table table-striped table-data">
+                      <?php createTableDataSQL('CALL DASH_adwords_cost_by_campaign_date('.$_SESSION["game"].', "'.$_SESSION["start_date"].'" , "'.$_SESSION["end_date"].'");'); ?>
+                    </table>
+                    </div>
+                </div><!-- panel-body -->
+              </div>
+            </div><!-- contentpanel -->
   </section>
 
 <?php include('footer-user.php'); ?>
