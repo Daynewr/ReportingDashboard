@@ -22,7 +22,6 @@
   <link href="css/style.default.css" rel="stylesheet">
   <link href="css/jquery.datatables.css" rel="stylesheet">
   <link href="css/morris.css" rel="stylesheet">
-  <link href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet">
 
 
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
