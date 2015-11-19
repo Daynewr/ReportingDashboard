@@ -1,8 +1,29 @@
 <?php
 
+  echo "testing";
   include('dbPDO.php');
+  include('../selection.php');
 
-  var_dump($results_gplayinstalls_top);
+echo 'CALL DASH_fyber_revenue_total('.$_SESSION["game"].', "'.$_SESSION["start_date"].'" , "'.$_SESSION["end_date"].'");';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
   $monday = strtotime('last monday', strtotime('tomorrow'));
@@ -21,7 +42,6 @@
 
   var_dump($results_gplayinstalls_top);
 */
-//var_dump($results_spend_rev_chart);
 
 //echo $results_spend_rev_chart[0]->y;
 //echo $yesterday;
@@ -34,10 +54,12 @@ foreach($results_spend_rev_chart as $spend_date){
   }
 }
 */
-
-
-echo $today;
-
+/*
+$the_date = "2015-10-29";
+foreach($results_spend_rev_chart as $spend_date){
+  $spend_date->y == $the_date ? echo $spend_date->b : echo $yesterday;
+}
+*/
 //var_dump($results_spend_period);
 
 
