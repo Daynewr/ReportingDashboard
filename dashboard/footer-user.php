@@ -1,7 +1,7 @@
 
   <script src="js/jquery-1.11.1.min.js"></script>
   <script src="js/jquery-migrate-1.2.1.min.js"></script>
-  <script src="js/jquery-ui-1.10.3.min.js"></script>
+
 
   <script src="js/raphael-2.1.0.min.js"></script>
   <script src="js/morris.min.js"></script>
@@ -16,6 +16,7 @@
   <script src="js/custom.js"></script>
   <script src="js/jquery-1.11.1.min.js"></script>
   <script src="js/jquery.datatables.min.js"></script>
+  <script src="js/jquery-ui-1.10.3.min.js"></script>
   <script src="js/jquery.jeditable.js"></script>
   <script src="js/jquery.cookies.js"></script>
   <script src="js/toggles.min.js"></script>
@@ -23,9 +24,6 @@
   <script src="js/bootstrap.min.js"></script>
   <script src="js/modernizr.min.js"></script>
   <script src="js/jquery.sparkline.min.js"></script>
-
-
-
 
 
   <script>
@@ -50,7 +48,10 @@
 
       });
 
-        jQuery('.table-data').dataTable();
+      $('.datepicker').datepicker({
+        dateFormat: "yy-mm-dd"
+      });
+      $('.table-data').dataTable();
 
       // Select2
       /*jQuery('select').select2({
@@ -66,18 +67,18 @@
         },function(){
           jQuery(this).find('.table-action-hide a').animate({opacity: 0});
         });
-            // Delete row in a table
-            $('.delete-row').click(function(){
-              var c = confirm("This will delete the row from the database as well and cannot be undone. \n\n ARE YOU SURE?");
-              if(c) {
-                jQuery(this).closest('tr').fadeOut(function(){
-                  var $id = $(this).children(':first-child').attr('id');
-                  $.post('db/dbPDO.php', {id : $id, fn : 'delete-user'}, function(data){console.log(data)});
-                  jQuery(this).remove();
-                });
-              }
-                return false;
+    // Delete row in a table
+        $('.delete-row').click(function(){
+          var c = confirm("This will delete the row from the database as well and cannot be undone. \n\n ARE YOU SURE?");
+          if(c) {
+            jQuery(this).closest('tr').fadeOut(function(){
+              var $id = $(this).children(':first-child').attr('id');
+              $.post('db/dbPDO.php', {id : $id, fn : 'delete-user'}, function(data){console.log(data)});
+              jQuery(this).remove();
             });
+          }
+            return false;
+        });
 
               var chartObj = <?php echo $results_gplayinstalls_JSON; ?>;
               /***** MORRIS CHARTS *****/
