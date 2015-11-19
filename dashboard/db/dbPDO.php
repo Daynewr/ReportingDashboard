@@ -303,5 +303,18 @@ function createTableDataSQL($sqlcall){
       echo $buffer;
 }
 
+//simple query call
+function querydb($sqlcall){
+  if(!$db) {
+    $db = new PDO('mysql:host=dev.spyrgames.com;port=3306;dbname=spyrgdb;charset=utf8', 'spyrgadm', '!7sHCa8c9as!sAd’');
+  };
+  //query table
+  $q = $db->prepare($sqlcall);
+  $q->execute();
+  $results = $q->fetchAll(PDO::FETCH_CLASS);
+
+  return $results;
+}
+
 
 ?>
