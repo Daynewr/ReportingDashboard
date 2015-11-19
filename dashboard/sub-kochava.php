@@ -26,7 +26,7 @@
             <br />
             <div class="table-responsive">
             <table class="table table-striped table-data">
-                <?php createTableDataSQL('CALL DASH_kochava_installs_country(1);'); ?>
+                <?php createTableDataSQL('CALL DASH_kochava_installs_country('.$_SESSION["game"].');'); ?>
             </table>
           </div>
         </div><!-- panel-body -->
@@ -42,7 +42,7 @@
           <br />
           <div class="table-responsive">
           <table class="table table-striped table-data">
-              <?php createTableDataSQL('CALL DASH_kochava_installs_country_date(1);'); ?>
+              <?php createTableDataSQL('CALL DASH_kochava_installs_country_date('.$_SESSION["game"].');'); ?>
             </table>
             </div>
         </div><!-- panel-body -->
@@ -59,7 +59,7 @@
           <br />
           <div class="table-responsive">
           <table class="table table-striped table-data">
-              <?php createTableDataSQL('CALL DASH_kochava_installs_country_creative(1);'); ?>
+              <?php createTableDataSQL('CALL DASH_kochava_installs_country_creative('.$_SESSION["game"].');'); ?>
             </table>
             </div>
         </div><!-- panel-body -->

@@ -25,7 +25,7 @@
             <br />
             <div class="table-responsive">
             <table class="table table-striped table-data">
-                <?php createTableDataSQL('CALL DASH_adwords_totals_all(1);'); ?>
+                <?php createTableDataSQL('CALL DASH_adwords_totals_all('.$_SESSION["game"].');'); ?>
             </table>
           </div>
         </div><!-- panel-body -->
@@ -41,7 +41,7 @@
             <br />
             <div class="table-responsive">
             <table class="table table-striped table-data">
-                <?php createTableDataSQL('CALL DASH_adwords_totals_date(1);'); ?>
+                <?php createTableDataSQL('CALL DASH_adwords_totals_date('.$_SESSION["game"].');'); ?>
               </table>
               </div>
           </div><!-- panel-body -->
@@ -57,7 +57,7 @@
           <br />
           <div class="table-responsive">
           <table class="table table-striped table-data">
-              <?php createTableDataSQL('CALL DASH_adwords_by_ad_totals(1);'); ?>
+              <?php createTableDataSQL('CALL DASH_adwords_by_ad_totals('.$_SESSION["game"].');'); ?>
             </table>
             </div>
         </div><!-- panel-body -->
@@ -73,7 +73,7 @@
             <br />
             <div class="table-responsive">
             <table class="table table-striped table-data">
-                <?php createTableDataSQL('CALL DASH_adwords_by_ad_date(1);'); ?>
+                <?php createTableDataSQL('CALL DASH_adwords_by_ad_date('.$_SESSION["game"].');'); ?>
               </table>
               </div>
           </div><!-- panel-body -->
@@ -89,7 +89,7 @@
               <br />
               <div class="table-responsive">
               <table class="table table-striped table-data">
-                  <?php createTableDataSQL('CALL DASH_adwords_by_ad_date_id(1);'); ?>
+                  <?php createTableDataSQL('CALL DASH_adwords_by_ad_date_id('.$_SESSION["game"].');'); ?>
                 </table>
                 </div>
             </div><!-- panel-body -->
