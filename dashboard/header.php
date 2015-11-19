@@ -4,6 +4,7 @@
     header("Location: loginform.php");
   }
   include('db/dbPDO.php');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,6 +22,8 @@
   <link href="css/style.default.css" rel="stylesheet">
   <link href="css/jquery.datatables.css" rel="stylesheet">
   <link href="css/morris.css" rel="stylesheet">
+  <link href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet">
+
 
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
@@ -62,6 +65,30 @@
         <li><a href="register-user.php"><i class="glyphicon glyphicon-user"></i> <span>Register User</span></a></li>
         <li><a href="loginform.php?action=logout"><i class="glyphicon glyphicon-log-out"></i><span>Log Out</span></a></li>
       </ul>
+      <div class="infosummary">
+  <h5 class="sidebartitle">Last Updated</h5>
+  <ul>
+      <li>
+          <div class="datainfo">
+              <span class="text-muted">Adwords Data</span>
+              <h4><?php echo querydb('select report_date date from adwords_cost order by report_date desc limit 1;')[0]->date; ?></h4>
+          </div>
+      </li>
+      <li>
+          <div class="datainfo">
+              <span class="text-muted">Kochava Data</span>
+              <h4><?php echo querydb('select date(eve_date) date from kochava_runeguardian_event_launch order by eve_date desc limit 1;')[0]->date; ?></h4>
+          </div>
+      </li>
+      <li>
+          <div class="datainfo">
+              <span class="text-muted">Fyber Data</span>
+              <h4><?php echo querydb('select report_date date from fyber_statistics_endpoint_adnetwork order by report_date desc limit 1;')[0]->date; ?></h4>
+          </div>
+      </li>
+  </ul>
+</div><!-- infosummary -->
+
 
     </div><!-- leftpanelinner -->
   </div><!-- leftpanel -->
