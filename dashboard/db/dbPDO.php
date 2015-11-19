@@ -1,11 +1,21 @@
 <?php
+//setting day vars
+$today = date("Y-m-d");
+$yesterday = date("Y-m-d", time() - 60 *  60 *  24);
+$thirty_days_back = date('Y-m-d', strtotime('-30 days'));
 
-  //error_reporting(E_ALL);
-  //ini_set('display_errors', 1);
+$d = new DateTime('first day of this month');
+$first_day_month = $d->format('Y-m-d');
+
+$d = new DateTime('first day of last month');
+$first_day_last_month = $d->format('Y-m-d');
+
+  error_reporting(E_ALL);
+  ini_set('display_errors', 0);
   //setup new PDO class
   if(!$db) {
-    $db = new PDO('mysql:host=dev.spyrgames.com;port=3306;dbname=spyrgdb;charset=utf8', 'spyrgadm', '!7sHCa8c9as!sAd’');
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $db = new PDO('mysql:host=localhost;dbname=spyrgdb;charset=utf8', 'root', '');
+    //$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   }
 
 ////////////////////////////////////////
@@ -13,11 +23,11 @@
 //    INTERACT WITH API TABLE         //
 //                                    //
    //query all table collumn headers
-
    $q_table1 = $db->prepare('DESCRIBE kochava');
    $q_table1->execute();
    $col_table1 = $q_table1->fetchAll(PDO::FETCH_COLUMN);
-  //query all table data
+
+   //query all table data
    $results_table1 = $db->query('SELECT * FROM kochava');
 
   // SWITCH STATEMENT TO DETERMING SQL FUNCTIONS TO EXECUTE //
@@ -102,47 +112,33 @@ $results_gplayinstalls_JSON = json_encode($results_gplayinstalls);
 
 //query table data get_spend_for_period(game_id, start_date, end_date)
 //SPEND REV CHART
-$q_table3 = $db->prepare('call get_spend_for_period(1, "2015-10-01", "2015-10-31");');
+$q_table3 = $db->prepare('call get_spend_for_period(1, "'.$thirty_days_back.'", "'.$today.'");');
 $q_table3->execute();
 $results_spend_period = $q_table3->fetchAll(PDO::FETCH_CLASS);
 
 //query table data get_rev_for_period(game_id, start_date, end_date)
-$q_table3 = $db->prepare('call get_rev_for_period(1, "2015-10-01", "2015-10-31");');
+$q_table3 = $db->prepare('call get_rev_for_period(1, "'.$thirty_days_back.'", "'.$today.'");');
 $q_table3->execute();
 $results_rev_period = $q_table3->fetchAll(PDO::FETCH_CLASS);
 
 
-//convert results_gplayinstalls into an JSON object for JS usage
-//$results_gplayinstalls_JSON = json_encode($results_gplayinstalls);
-
-
 //query table for install/unistall totals  get_todays_google_totals(game_id, date)
-$today = date("Y-m-d");
-$yesterday = date("Y-m-d", time() - 60 *  60 *  24);
-
-$d = new DateTime('first day of this month');
-$first_day_month = $d->format('Y-m-d');
-
-$d = new DateTime('first day of last month');
-$first_day_last_month = $d->format('Y-m-d');
-
-$q_table3 = $db->prepare('call get_todays_google_totals(1,"2015-10-28");');
+$q_table3 = $db->prepare('call get_todays_google_totals(1,"'.$today.'");');
 $q_table3->execute();
 $results_gplayinstalls_top = $q_table3->fetchAll(PDO::FETCH_CLASS);
 
 //get impressions and spend get_singleday_impressions_spend(game_id, date)
-$q_table3 = $db->prepare('call get_singleday_impressions_spend(1,"2015-10-28");');
+$q_table3 = $db->prepare('call get_singleday_impressions_spend(1,"'.$today.'");');
 $q_table3->execute();
 $results_impr_spend = $q_table3->fetchAll(PDO::FETCH_CLASS);
 
 
-
 //get spend and revenue daily number get_spend_rev_data(game_id, start_date, end_date);
-//$q_table3 = $db->prepare('call get_spend_rev_data(1, "2015-10-01", "2015-10-31");');
-//$q_table3->execute();
-//$results_spend_rev_chart = $q_table3->fetchAll(PDO::FETCH_CLASS);
+$q_table3 = $db->prepare('call get_spend_rev_data(1, "'.$thirty_days_back.'", "'.$today.'");');
+$q_table3->execute();
+$results_spend_rev_chart = $q_table3->fetchAll(PDO::FETCH_CLASS);
 
-//$results_spend_rev_chart_JSON = json_encode($results_spend_rev_chart);
+$results_spend_rev_chart_JSON = json_encode($results_spend_rev_chart);
 
 
 //function to get yesterday revenue
@@ -158,7 +154,7 @@ foreach($results as $spend_date){
 
 //function to get last month revenue
 function getLastMonthRevenue($results){
-  global $first_day_month, $first_day_last_month;
+global $first_day_month, $first_day_last_month;
   $total_rev = 0;
   foreach($results as $spend_date){
     if($spend_date->y < $first_day_month && $spend_date->y >= $first_day_last_month){
@@ -170,7 +166,7 @@ function getLastMonthRevenue($results){
 
 //function to get this months revenue
 function getThisMonthRevenue($results){
-  global $first_day_month;
+global $first_day_month;
   $total_rev = 0;
   foreach($results as $spend_date){
     if($spend_date->y >= $first_day_month){
@@ -182,7 +178,7 @@ function getThisMonthRevenue($results){
 
 //function to get last months spend
 function getLastMonthSpend($results){
-  global $first_day_month, $first_day_last_month;
+global $first_day_month, $first_day_last_month;
   $total_spend = 0;
   foreach($results as $spend_date){
     if($spend_date->y < $first_day_month && $spend_date->y >= $first_day_last_month){
@@ -194,7 +190,7 @@ function getLastMonthSpend($results){
 
 //function to get this months spend
 function getThisMonthSpend($results){
-  global $first_day_month;
+global $first_day_month;
   $total_spend = 0;
   foreach($results as $spend_date){
     if($spend_date->y >= $first_day_month){
@@ -281,7 +277,6 @@ function sidebarTotalAdSpend($table){
   return $totalAdSpend;
 }
 */
-
 //////////////////////////////////////////
 //                                      //
 //    FUNCTION TO CREATE TABLES         //
@@ -289,7 +284,7 @@ function sidebarTotalAdSpend($table){
 
 function createTableDataSQL($sqlcall){
   if(!$db) {
-    $db = new PDO('mysql:host=dev.spyrgames.com;port=3306;dbname=spyrgdb;charset=utf8', 'spyrgadm', '!7sHCa8c9as!sAd’');
+    $db = new PDO('mysql:host=localhost;dbname=spyrgdb;charset=utf8', 'root', '');
   };
   //query table
   $q = $db->prepare($sqlcall);
@@ -308,19 +303,5 @@ function createTableDataSQL($sqlcall){
       echo $buffer;
 }
 
-
-//simple query call
-function querydb($sqlcall){
-  if(!$db) {
-    $db = new PDO('mysql:host=dev.spyrgames.com;port=3306;dbname=spyrgdb;charset=utf8', 'spyrgadm', '!7sHCa8c9as!sAd’');
-  };
-  //query table
-  $q = $db->prepare($sqlcall);
-  $q->execute();
-  $results = $q->fetchAll(PDO::FETCH_CLASS);
-  
-  return $results;
-//echo $results[0]->date;
-}
 
 ?>
