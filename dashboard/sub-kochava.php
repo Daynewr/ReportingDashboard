@@ -10,16 +10,7 @@
           <li class="active">Kochava Data</li>
         </ol>
       </div>
-      <!--select game for specific data-->
-      <div style="margin-top: 20px;" class="styled-select">
-        <select>
-          <option value="runeguardian_android">RuneGuardian Android</option>
-          <option value="runeguardian_ios">RuneGuardian iOS</option>
-          <option value="plucky_rush_android">Pucky Rush Android</option>
-          <option value="pluckyrush_ios">Plucky Rush iOS</option>
-        </select>
-      </div>
-    <!-- end select-->
+      <?php include('selection.php'); ?>
     </div>
     <!-- end page header -->
 
