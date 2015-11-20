@@ -2,12 +2,12 @@
     include('header.php');
  ?>
     <div class="pageheader">
-      <h2><i class="fa fa-home"></i> CPI Analysis Data <span>CPI data overview</span></h2>
+      <h2><i class="fa fa-home"></i> CPA Analysis Data <span>CPA data overview</span></h2>
       <div class="breadcrumb-wrapper">
         <span class="label">You are here:</span>
         <ol class="breadcrumb">
           <li><a href="index.html">SPYR Games</a></li>
-          <li class="active">CPI Analysis Data</li>
+          <li class="active">CPA Analysis Data</li>
         </ol>
       </div>
     <?php include('selection.php'); ?>
@@ -21,7 +21,7 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <div class="clearfix mb30"></div>
-            <h3>[Still in development]</h3>
+            <h3>CPA Date (date)</h3>
             <div><p></p></div>
             <br />
             <div class="table-responsive">
