@@ -52,7 +52,7 @@
         dateFormat: "yy-mm-dd"
       });
       $('.table-data').dataTable({
-        "orderFixed": [ 0, 'desc' ]
+        "order": [[ 0, 'desc' ]
       });
 
       // Select2
