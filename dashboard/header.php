@@ -55,7 +55,7 @@
             <li><a href="sub-revenue.php"><i class="fa fa-caret-right"></i> Revenue Data</a></li>
             <li><a href="sub-cost.php"><i class="fa fa-caret-right"></i> Cost Data</a></li>
             <li><a href="sub-google.php"><i class="fa fa-caret-right"></i> Google Data</a></li>
-            <li><a href="sub-analysis.php"><i class="fa fa-caret-right"></i> CPI Analysis</a></li>
+            <li><a href="sub-analysis.php"><i class="fa fa-caret-right"></i> CPA Analysis</a></li>
             <li><a href="sub-kochava.php"><i class="fa fa-caret-right"></i> Kochava Data</a></li>
           </ul>
         </li>

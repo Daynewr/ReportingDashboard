@@ -26,6 +26,7 @@
             <br />
             <div class="table-responsive">
             <table class="table table-striped table-data">
+                <?php createTableDataSQL('CALL DASH_CPA_Date('.$_SESSION["game"].', "'.$_SESSION["start_date"].'" , "'.$_SESSION["end_date"].'");'); ?>
             </table>
           </div>
         </div><!-- panel-body -->
