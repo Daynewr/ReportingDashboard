@@ -51,7 +51,9 @@
       $('.datepicker').datepicker({
         dateFormat: "yy-mm-dd"
       });
-      $('.table-data').dataTable();
+      $('.table-data').dataTable({
+        "orderFixed": [ 0, 'desc' ]
+      });
 
       // Select2
       /*jQuery('select').select2({

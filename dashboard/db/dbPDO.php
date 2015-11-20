@@ -1,5 +1,9 @@
 <?php
-//setting day vars
+////////////////////////////////////////
+//                                    //
+//        SETTING DATE VARS           //
+//                                    //
+
 $today = date("Y-m-d");
 $yesterday = date("Y-m-d", time() - 60 *  60 *  24);
 $thirty_days_back = date('Y-m-d', strtotime('-30 days'));
@@ -10,8 +14,14 @@ $first_day_month = $d->format('Y-m-d');
 $d = new DateTime('first day of last month');
 $first_day_last_month = $d->format('Y-m-d');
 
-  error_reporting(E_ALL);
-  ini_set('display_errors', 0);
+////////////////////////////////////////
+//                                    //
+//      INITIAL DB CONNECTION         //
+//                                    //
+
+  //error_reporting(E_ALL);
+  //ini_set('display_errors', 0);
+
   //setup new PDO class
   if(!$db) {
     $db = new PDO('mysql:host=localhost;dbname=spyrgdb;charset=utf8', 'root', '');
@@ -51,7 +61,12 @@ $first_day_last_month = $d->format('Y-m-d');
         break;
   }
 
- // FUNCTIONS TO EXECUTE IN SWITCH STATEMENT //
+
+//////////////////////////////////////////
+//                                      //
+//        FUNCTIONS TO EXECUTE          //
+//        IN SWITCH STATEMENT           //
+//                                      //
 
  //create record function
  function updateRecord($db){
@@ -85,6 +100,13 @@ $first_day_last_month = $d->format('Y-m-d');
    $query = $db->query("DELETE FROM kochava WHERE Id=$rowId");
  }
 
+ //////////////////////////////////////////
+ //                                      //
+ //        INTERACT WITH USER DB         //
+ //                                      //
+ //                                      //
+
+
  //delete user from .db
  function deleteUser(){
    $user   = $_POST['id'];
@@ -99,8 +121,8 @@ $first_day_last_month = $d->format('Y-m-d');
 //        INSTALL TABLE                 //
 //                                      //
 
-//query table data get_google_overview_chart(game_id, result_amount)
 // INSTALL CHART
+//query table data get_google_overview_chart(game_id, result_amount)
 
 $q_table3 = $db->prepare('CALL get_google_overview_chart(1,30);');
 $q_table3->execute();
@@ -202,83 +224,6 @@ global $first_day_month;
 
 //////////////////////////////////////////
 //                                      //
-//    INTERACT WITH GAME TABLE          //
-//                                      //
-/*
-//query all table collumn headers
-$q_table2 = $db->prepare('DESCRIBE RuneGuardian');
-$q_table2->execute();
-$col_table2 = $q_table2->fetchAll(PDO::FETCH_COLUMN);
-
-//query all table data
-$q_table2 = $db->prepare('SELECT * FROM RuneGuardian');
-$q_table2->execute();
-$results_table2 = $q_table2->fetchAll();
-
-//creates table for dashboard
-function expandData($table, $col) {
-  $buffer = "<tbody>"; // start a table tag in the HTML
-  foreach($table as $row) {   //Creates a loop to loop through results
-        $buffer .= "<tr><td id='$row[0]-$col[1]'>"
-              .$row[1]
-              ."</td><td id='$row[0]-$col[4]'>"
-              .$row[4]
-              ."</td><td id='$row[0]-$col[5]'>"
-              .$row[5]
-              ."</td><td id='$row[0]-$col[6]'>"
-              .$row[6]
-              ."</td><td id='$row[0]-$col[7]'>"
-              .$row[7]
-              ."</td><td id='$row[0]-$col[8]'>"
-              .$row[8]
-              ."</td><td id='$row[0]-$col[12]'>"
-              ."$".$row[12]
-              ."</tr>";
-      }
-    $buffer .= "</tbody>"; //Close the table in HTML
-    echo $buffer;
-}
-
-// FUNCTIONS TO CREATE SIDEBAR DASHBOARD DATA FOR WEEKLY TOTALS //
-
-//set weekly dates
-$startOfWeek = date('Y-m-d',strtotime('last sunday'));
-$today = date("Y-m-d");
-
-//query weekly data for sidebar
-$q_table2 = $db->prepare('SELECT * FROM RuneGuardian WHERE click_date >= "'.$startOfWeek.'" and click_date <= "'.$today.'"');
-$q_table2->execute();
-$results_weekly = $q_table2->fetchAll();
-
-//gets total installs for week to date
-function sidebarTotalInstalls($table) {
-  $totalInstalls = 0;
-  foreach($table as $row){
-    $totalInstalls += $row[8];
-  }
-  return $totalInstalls;
-}
-
-//gets total clicks for week to date
-function sidebarTotalClicks($table){
-  $totalClicks = 0;
-  foreach($table as $row){
-    $totalClicks += $row[7];
-  }
-  return $totalClicks;
-}
-
-//gets total ad spend for week to date
-function sidebarTotalAdSpend($table){
-  $totalAdSpend = 0;
-  foreach($table as $row){
-    $totalAdSpend += $row[12];
-  }
-  return $totalAdSpend;
-}
-*/
-//////////////////////////////////////////
-//                                      //
 //    FUNCTION TO CREATE TABLES         //
 //                                      //
 
@@ -291,7 +236,6 @@ function createTableDataSQL($sqlcall){
   $q->execute();
   $results = $q->fetchAll(PDO::FETCH_CLASS);
 
-  //build up data from results
   $buffer  = "<thead><tr>";
   foreach ($results[0] as $key => $value) { $buffer .="<th>".$key."</th>"; }
   $buffer .= "</tr></thead><tbody>";
@@ -299,7 +243,7 @@ function createTableDataSQL($sqlcall){
     foreach($obj_set as $row => $item){ $buffer .="<td id='$row'>".$item."</td>";}
     $buffer .="</tr>";
   }
-  $buffer .= "</tbody>"; //Close the table in HTML
+  $buffer .= "</tbody>";
       echo $buffer;
 }
 
