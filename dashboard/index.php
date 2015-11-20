@@ -187,20 +187,10 @@
             </div>
             <br />
             <div class="table-responsive">
-            <table class="table table-striped" id="table2">
-                <thead>
-                   <tr>
-                     <th>Date</th>
-                     <th>Referring Site</th>
-                     <th>Creative Id</th>
-                     <th>Country</th>
-                     <th>Clicks</th>
-                     <th>Installs</th>
-                     <th>Spend</th>
-                   </tr>
-                </thead>
-          <?php //expandData($results_table2, $col_table2); ?>
-          </div><!-- panel-body -->
+              <table class="table table-striped table-data">
+                  <?php createTableDataSQL('CALL DASH_adwords_cost_by_country('.$_SESSION["game"].', "'.$_SESSION["start_date"].'" , "'.$_SESSION["end_date"].'");'); ?>
+              </table>
+            </div><!-- panel-body -->
 
       </div><!-- contentpanel -->
 
