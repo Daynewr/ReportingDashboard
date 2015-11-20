@@ -98,7 +98,7 @@
                 hideHover: true
               });
 
-              /*var barObj = <?php echo $results_spend_rev_chart_JSON ?>;
+              var barObj = <?php echo $results_spend_rev_chart_JSON ?>;
 
               var m3 = new Morris.Bar({
             		// ID of the element in which to draw the chart.
@@ -114,7 +114,7 @@
             		fillOpacity: 0.8,
             		smooth: false,
             		hideHover: true
-            	});*/
+            	});
 
     });
   </script>
