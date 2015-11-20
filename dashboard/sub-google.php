@@ -21,11 +21,12 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <div class="clearfix mb30"></div>
-            <h3>[Still in development]</h3>
+            <h3>Google User/Device Installs</h3>
             <div><p></p></div>
             <br />
             <div class="table-responsive">
             <table class="table table-striped table-data">
+              <?php createTableDataSQL('CALL DASH_google_overview_date('.$_SESSION["game"].', "'.$_SESSION["start_date"].'" , "'.$_SESSION["end_date"].'");'); ?>
             </table>
           </div>
         </div><!-- panel-body -->

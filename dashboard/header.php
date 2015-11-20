@@ -76,7 +76,7 @@
       <li>
           <div class="datainfo">
               <span class="text-muted">Kochava Data</span>
-              <h4><?php echo querydb('select date(eve_date) date from kochava_runeguardian_event_launch order by eve_date desc limit 1;')[0]->date; ?></h4>
+              <h4><?php echo querydb('select max(report_date) date from kochava_campaign_summary;')[0]->date; ?></h4>
           </div>
       </li>
       <li>
