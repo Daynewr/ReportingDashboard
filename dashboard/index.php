@@ -180,10 +180,10 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <div class="clearfix mb30"></div>
-            <h3>Daily Activity Table</h3>
+            <h3>Cost by Country, by Campaign</h3>
 
             <div>
-              <p>This table provides daily data.</p>
+              <p>Ratio is CountryAcquiredUsers / TotalCampaignAcquiredUsers</p>
             </div>
             <br />
             <div class="table-responsive">
