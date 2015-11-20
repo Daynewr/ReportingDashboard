@@ -57,7 +57,6 @@
             <li><a href="sub-google.php"><i class="fa fa-caret-right"></i> Google Data</a></li>
             <li><a href="sub-analysis.php"><i class="fa fa-caret-right"></i> CPI Analysis</a></li>
             <li><a href="sub-kochava.php"><i class="fa fa-caret-right"></i> Kochava Data</a></li>
-            <li><a href="sub-display.php"><i class="fa fa-caret-right"></i> Display Search+UAC</a></li>
           </ul>
         </li>
         <!--<li><a href="add-account.php"><i class="glyphicon glyphicon-cog deactive"></i> <span>Add Accounts</span></a></li>-->
