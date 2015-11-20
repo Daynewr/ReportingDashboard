@@ -19,8 +19,8 @@ $first_day_last_month = $d->format('Y-m-d');
 //      INITIAL DB CONNECTION         //
 //                                    //
 
-  //error_reporting(E_ALL);
-  //ini_set('display_errors', 0);
+  error_reporting(E_ALL);
+  ini_set('display_errors', 0);
 
   //setup new PDO class
   if(!$db) {
