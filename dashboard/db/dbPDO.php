@@ -156,7 +156,7 @@ $results_impr_spend = $q_table3->fetchAll(PDO::FETCH_CLASS);
 
 
 //get spend and revenue daily number get_spend_rev_data(game_id, start_date, end_date);
-$q_table3 = $db->prepare('call get_spend_rev_data(1, "'.$thirty_days_back.'", "'.$today.'");');
+$q_table3 = $db->prepare('call get_spend_rev_data('.$_SESSION['game'].');');
 $q_table3->execute();
 $results_spend_rev_chart = $q_table3->fetchAll(PDO::FETCH_CLASS);
 
