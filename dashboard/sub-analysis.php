@@ -21,7 +21,7 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <div class="clearfix mb30"></div>
-            <h3>CPA Date (date)</h3>
+            <h3>CPA Data (date)</h3>
             <div><p></p></div>
             <br />
             <div class="table-responsive">
