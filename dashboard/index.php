@@ -62,7 +62,7 @@
                   </div>
                   <div class="col-xs-8">
                     <small class="stat-label">Clicks On <?php echo $top_array[0]->{'AdWords Most Recent'}; ?></small>
-                    <h1><?php echo (!isset($top_array[0]->{'Clicks Most Recent'}) ? 'N/A' : $top_array[0]->{'Clicks Most Recent'}; ?></h1>
+                    <h1><?php echo (!isset($top_array[0]->{'Clicks Most Recent'}) ? 'N/A' : $top_array[0]->{'Clicks Most Recent'}); ?></h1>
                   </div>
                 </div><!-- row -->
 
