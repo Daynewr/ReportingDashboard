@@ -134,8 +134,8 @@
                     <img src="images/is-money.png" alt="" />
                   </div>
                   <div class="col-xs-8">
-                    <small class="stat-label">Yesterday's Spend</small>
-                    <h1>$<?php echo 'N/A';/*echo (!isset($results_impr_spend[0]->daily_spend) ? ' N/A' : $results_impr_spend[0]->daily_spend);*/ ?></h1>
+                    <small class="stat-label">Spend On <?php echo $top_array[0]->{'AdWords Most Recent'}; ?></small>
+                    <h1>$<?php echo (!isset($top_array[0]->{'Spend Most Recent'}) ? ' N/A' : $top_array[0]->{'Spend Most Recent'}); ?></h1>
                   </div>
                 </div><!-- row -->
 
@@ -144,12 +144,12 @@
                 <div class="row">
                   <div class="col-xs-6">
                     <small class="stat-label">This Month</small>
-                    <h4>$<?php echo 'N/A';/*echo (!isset($results_spend_rev_chart) ? ' N/A' : getThisMonthSpend($results_spend_rev_chart)); */?></h4>
+                    <h4>$<?php echo (!isset($top_array[0]->{'Spend This Month'}) ? ' N/A' : $top_array[0]->{'Spend This Month'}); ?></h4>
                   </div>
 
                   <div class="col-xs-6">
                     <small class="stat-label">Last Month</small>
-                    <h4>$<?php echo 'N/A';/*echo (!isset($results_spend_rev_chart) ? ' N/A' : getLastMonthSpend($results_spend_rev_chart));*/ ?></h4>
+                    <h4>$<?php echo (!isset($top_array[0]->{'Spend Last Month'}) ? ' N/A' : $top_array[0]->{'Spend Last Month'}); ?></h4>
                   </div>
                 </div><!-- row -->
 
