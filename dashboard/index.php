@@ -61,8 +61,8 @@
                     <img src="images/is-document.png" alt="" />
                   </div>
                   <div class="col-xs-8">
-                    <small class="stat-label">Yesterday's Clicks</small>
-                    <h1><?php echo 'N/A';/*echo (!isset($results_impr_spend[0]->kochava_today_clicks) ? 'N/A' : $results_impr_spend[0]->kochava_today_clicks);*/ ?></h1>
+                    <small class="stat-label">Clicks On <?php echo $top_array[0]->{'AdWords Most Recent'}; ?></small>
+                    <h1><?php echo (!isset($top_array[0]->{'Clicks Most Recent'}) ? 'N/A' : $top_array[0]->{'Clicks Most Recent'}; ?></h1>
                   </div>
                 </div><!-- row -->
 
@@ -71,17 +71,17 @@
                 <div class="row">
                   <div class="col-xs-4">
                     <small class="stat-label">Impressions</small>
-                    <h4><?php echo 'N/A';/*echo (!isset($results_impr_spend[0]->impressions) ? 'N/A' : $results_impr_spend[0]->impressions);*/ ?></h4>
+                    <h4><?php echo (!isset($top_array[0]->{'Impressions Most Recent'}) ? 'N/A' : $top_array[0]->{'Impressions Most Recent'}); ?></h4>
                   </div>
 
                   <div class="col-xs-4">
                     <small class="stat-label">CTR %</small>
 
-                    <h4><?php echo 'N/A';/*echo (!isset($results_impr_spend[0]->ctr) ? 'N/A ' : $results_impr_spend[0]->ctr);*/ ?>%</h4>
+                    <h4><?php echo (!isset($top_array[0]->{'CTR Most Recent'}) ? 'N/A ' : $top_array[0]->{'CTR Most Recent'}); ?>%</h4>
                   </div>
                   <div class="col-xs-4">
                     <small class="stat-label">Uninstalls</small>
-                    <h4><?php echo 'N/A';/*echo (!isset($results_gplayinstalls_top[0]->daily_uninstalls) ? 'N/A' : $results_gplayinstalls_top[0]->daily_uninstalls);*/ ?></h4>
+                    <h4><?php echo (!isset($top_array[0]->{'Uninstalls'}) ? 'N/A' : $top_array[0]->{'Uninstalls'}); ?></h4>
                   </div>
                 </div><!-- row -->
               </div><!-- stat -->
