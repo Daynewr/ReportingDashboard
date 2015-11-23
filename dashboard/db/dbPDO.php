@@ -232,14 +232,17 @@ global $first_day_month;
 //                                      //
 
 function createTableDataSQL($sqlcall){
+  /*
   if(!$db) {
-    $db = new PDO('mysql:host=localhost;dbname=spyrgdb;charset=utf8', 'root', '');
+    $db = new PDO('mysql:host=dev.spyrgames.com;port=3306;dbname=spyrgdb;charset=utf8', 'spyrgadm', '!7sHCa8c9as!sAd’');
   };
   //query table
   $q = $db->prepare($sqlcall);
   $q->execute();
   $results = $q->fetchAll(PDO::FETCH_CLASS);
-
+  */
+  $results = querydb($sqlcall);
+  //build up data from results
   $buffer  = "<thead><tr>";
   foreach ($results[0] as $key => $value) { $buffer .="<th>".$key."</th>"; }
   $buffer .= "</tr></thead><tbody>";
@@ -247,7 +250,7 @@ function createTableDataSQL($sqlcall){
     foreach($obj_set as $row => $item){ $buffer .="<td id='$row'>".$item."</td>";}
     $buffer .="</tr>";
   }
-  $buffer .= "</tbody>";
+  $buffer .= "</tbody>"; //Close the table in HTML
       echo $buffer;
 }
 
@@ -256,10 +259,11 @@ function querydb($sqlcall){
   if(!$db) {
     $db = new PDO('mysql:host=dev.spyrgames.com;port=3306;dbname=spyrgdb;charset=utf8', 'spyrgadm', '!7sHCa8c9as!sAd’');
   };
-  //query table
-  $q = $db->prepare($sqlcall);
-  $q->execute();
-  $results = $q->fetchAll(PDO::FETCH_CLASS);
+
+    //query table
+    $q = $db->prepare($sqlcall);
+    $q->execute();
+    $results = $q->fetchAll(PDO::FETCH_CLASS);
 
   return $results;
 }

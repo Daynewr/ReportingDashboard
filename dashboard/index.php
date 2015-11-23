@@ -1,5 +1,6 @@
 <?php
     include('header.php');
+    $top_array = querydb('CALL DASH_main_top('.$_SESSION['game'].');');
  ?>
 
 
@@ -28,8 +29,8 @@
                     <img src="images/is-user.png" alt="" />
                   </div>
                   <div class="col-xs-8">
-                    <small class="stat-label">Yesterday's Installs</small>
-                    <h1><?php echo (!isset($results_gplayinstalls_top[0]->daily_installs) ? 'N/A' : $results_gplayinstalls_top[0]->daily_installs); ?></h1>
+                    <small class="stat-label">Installs On <?php echo $top_array[0]->{'GooglePlay'} ?></small>
+                    <h1><?php echo (!isset($top_array[0]->{'GooglePlay Installs'}) ? 'N/A' : $top_array[0]->{'GooglePlay Installs'}); ?></h1>
                   </div>
                 </div><!-- row -->
 
@@ -37,11 +38,11 @@
                 <div class="row">
                   <div class="col-xs-6">
                     <small class="stat-label">Current Installs</small>
-                    <h4><?php echo (!isset($results_gplayinstalls_top[0]->current_installs) ? 'N/A' : $results_gplayinstalls_top[0]->current_installs); ?></h4>
+                    <h4><?php echo (!isset($top_array[0]->{'Current Installs'}) ? 'N/A' : $top_array[0]->{'Current Installs'}); ?></h4>
                   </div>
                   <div class="col-xs-6">
                     <small class="stat-label">Lifetime Installs</small>
-                    <h4><?php echo (!isset($results_gplayinstalls_top[0]->lifetime_installs) ? 'N/A' : $results_gplayinstalls_top[0]->lifetime_installs); ?></h4>
+                    <h4><?php echo (!isset($top_array[0]->{'Total Installs'}) ? 'N/A' : $top_array[0]->{'Total Installs'}); ?></h4>
                   </div>
                 </div><!-- row -->
               </div><!-- stat -->
