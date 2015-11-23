@@ -100,8 +100,8 @@
                     <img src="images/is-money.png" alt="" />
                   </div>
                   <div class="col-xs-8">
-                    <small class="stat-label">Yesterday's Revenue</small>
-                    <h1>$<?php echo 'N/A';/*echo (!isset($results_spend_rev_chart) ? ' N/A' : getYesterdayRevenue($results_spend_rev_chart));*/ ?></h1>
+                    <small class="stat-label">Revenue On <?php echo $top_array[0]->{'GooglePlay'}; ?></small>
+                    <h1>$<?php echo (!isset($top_array[0]->{'Revenue Most recent'}) ? ' N/A' : $top_array[0]->{'Revenue Most recent'}); ?></h1>
                   </div>
                 </div><!-- row -->
 
@@ -109,12 +109,12 @@
                 <div class="row">
                   <div class="col-xs-6">
                     <small class="stat-label">This Month</small>
-                    <h4>$<?php echo 'N/A';/*echo (!isset($results_spend_rev_chart) ? ' N/A' : getThisMonthRevenue($results_spend_rev_chart));*/ ?></h4>
+                    <h4>$<?php echo (!isset($top_array[0]->{'Revenue This Month'}) ? ' N/A' : $top_array[0]->{'Revenue This Month'}); ?></h4>
                   </div>
 
                   <div class="col-xs-6">
                     <small class="stat-label">Last Month</small>
-                    <h4>$<?php echo 'N/A';/*echo (!isset($results_spend_rev_chart) ? ' N/A' : getLastMonthRevenue($results_spend_rev_chart)); */?></h4>
+                    <h4>$<?php echo (!isset($top_array[0]->{'Revenue Last Month'}) ? ' N/A' : $top_array[0]->{'Revenue Last Month'}); ?></h4>
                   </div>
                 </div><!-- row -->
               </div><!-- stat -->
