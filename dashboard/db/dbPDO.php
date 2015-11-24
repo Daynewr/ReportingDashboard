@@ -66,30 +66,7 @@ $results_gplayinstalls = $q_table3->fetchAll(PDO::FETCH_CLASS);
 //convert results_gplayinstalls into an JSON object for JS usage
 $results_gplayinstalls_JSON = json_encode($results_gplayinstalls);
 
-
-//query table data get_spend_for_period(game_id, start_date, end_date)
-//SPEND REV CHART
-$q_table3 = $db->prepare('call get_spend_for_period(1, "'.$thirty_days_back.'", "'.$today.'");');
-$q_table3->execute();
-$results_spend_period = $q_table3->fetchAll(PDO::FETCH_CLASS);
-
-//query table data get_rev_for_period(game_id, start_date, end_date)
-$q_table3 = $db->prepare('call get_rev_for_period(1, "'.$thirty_days_back.'", "'.$today.'");');
-$q_table3->execute();
-$results_rev_period = $q_table3->fetchAll(PDO::FETCH_CLASS);
-
-
-//query table for install/unistall totals  get_todays_google_totals(game_id, date)
-$q_table3 = $db->prepare('call get_todays_google_totals(1,"'.$today.'");');
-$q_table3->execute();
-$results_gplayinstalls_top = $q_table3->fetchAll(PDO::FETCH_CLASS);
-
-//get impressions and spend get_singleday_impressions_spend(game_id, date)
-$q_table3 = $db->prepare('call get_singleday_impressions_spend(1,"'.$today.'");');
-$q_table3->execute();
-$results_impr_spend = $q_table3->fetchAll(PDO::FETCH_CLASS);
-
-
+// SPEND VS REVENUE CHART
 //get spend and revenue daily number get_spend_rev_data(game_id);
 if(!isset($_SESSION['game'])) {
   $q_table3 = $db->prepare('call get_spend_rev_data(1);');

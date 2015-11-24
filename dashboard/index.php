@@ -184,7 +184,6 @@
           <div class="panel-body">
             <div class="clearfix mb30"></div>
             <h3>Cost by Country, by Campaign</h3>
-
             <div>
               <p>Ratio is CountryAcquiredUsers / TotalCampaignAcquiredUsers</p>
             </div>
