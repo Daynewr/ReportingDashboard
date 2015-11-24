@@ -21,7 +21,7 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <div class="clearfix mb30"></div>
-            <h3>Adwords Cost Totals (lifetime)</h3>
+            <h3>Adwords Cost Totals</h3>
             <br />
             <div class="table-responsive">
             <table class="table table-striped table-data">
@@ -52,7 +52,7 @@
       <div class="panel panel-default">
         <div class="panel-body">
           <div class="clearfix mb30"></div>
-          <h3>Adwords Cost by Ad (lifetime)</h3>
+          <h3>Adwords Cost by Ad</h3>
           <div><p></p></div>
           <br />
           <div class="table-responsive">
