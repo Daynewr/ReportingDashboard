@@ -1,7 +1,7 @@
 <?php
 
 // Set initial game data ID on first page load
-if(empty($_SESSION['game'] || !isset($_SESSION['game']){
+if(empty($_SESSION['game']) || !isset($_SESSION['game'])){
   $_SESSION['game'] = 1;
 }
 
