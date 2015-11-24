@@ -102,7 +102,7 @@
                     <img src="images/is-money.png" alt="" />
                   </div>
                   <div class="col-xs-8">
-                    <small class="stat-label">Revenue On <?php echo $top_array[0]->{'GooglePlay'}; ?></small>
+                    <small class="stat-label">Revenue On <?php echo $top_array[0]->{'Revenue Most recent date'}; ?></small>
                     <h1>$<?php echo (!isset($top_array[0]->{'Revenue Most recent'}) ? ' N/A' : $top_array[0]->{'Revenue Most recent'}); ?></h1>
                   </div>
                 </div><!-- row -->
