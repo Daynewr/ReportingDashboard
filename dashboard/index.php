@@ -167,7 +167,7 @@
         <div class="panel-body">
           <div class="row">
             <div class="col-md-6 mb30">
-              <h5 class="subtitle"><?php echo (($top_array[0]->game_provider == 'Google Play Store') ? 'Google Installs/Uninstalls':'Apple Installs/Uninstalls'); ?></h5>
+              <h5 class="subtitle"><?php echo (($top_array[0]->gameStore == 'Google Play Store') ? 'Google Installs/Uninstalls':'Apple Installs/Uninstalls'); ?></h5>
               <div id="line-chart" class="body-chart" style="height: 400px;"></div>
             </div>
             <div class="col-md-6 mb30">
