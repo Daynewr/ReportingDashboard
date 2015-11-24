@@ -1,8 +1,7 @@
 <?php
     include('header.php');
  ?>
-
-
+ 
     <div class="pageheader">
       <h2><i class="fa fa-home"></i> Dashboard <span>All data overview</span></h2>
       <div class="breadcrumb-wrapper">
