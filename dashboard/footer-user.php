@@ -82,41 +82,44 @@
             return false;
         });
 
-              var chartObj = <?php echo $results_gplayinstalls_JSON; ?>;
-              /***** MORRIS CHARTS *****/
-              var m1 = new Morris.Line({
-                // ID of the element in which to draw the chart.
-                element: 'line-chart',
-                // Chart data records -- each entry in this array corresponds to a point on
-                // the chart.
-                data: chartObj,
-                xkey: 'y',
-                ykeys: ['a', 'b', 'c'],
-                labels: ['Current Installs', 'Daily Installs', 'Daily Uninstalls'],
-                lineColors: ['#428BCA', '#1CAF9A', '#D9534F'],
-                lineWidth: '2px',
-                hideHover: true
-              });
+        //only load charts on index page
+        if($('.main-page')){
+              $(function(){
+                    var chartObj = <?php echo $results_gplayinstalls_JSON; ?>;
+                    /***** MORRIS CHARTS *****/
+                    var m1 = new Morris.Line({
+                      // ID of the element in which to draw the chart.
+                      element: 'line-chart',
+                      // Chart data records -- each entry in this array corresponds to a point on
+                      // the chart.
+                      data: chartObj,
+                      xkey: 'y',
+                      ykeys: ['a', 'b', 'c'],
+                      labels: ['Current Installs', 'Daily Installs', 'Daily Uninstalls'],
+                      lineColors: ['#428BCA', '#1CAF9A', '#D9534F'],
+                      lineWidth: '2px',
+                      hideHover: true
+                    });
 
-              var barObj = <?php echo $results_spend_rev_chart_JSON ?>;
+                    var barObj = <?php echo $results_spend_rev_chart_JSON ?>;
 
-              var m3 = new Morris.Bar({
-            		// ID of the element in which to draw the chart.
-            		element: 'bar-chart',
-            		// Chart data records -- each entry in this array corresponds to a point on
-            		// the chart.
-            		data: barObj,
-            		xkey: 'y',
-            		ykeys: ['a', 'b'],
-            		labels: ['Revenue','Spend'],
-                barColors: ['#1CAF9A','#DF706D'],
-            		lineWidth: '1px',
-            		fillOpacity: 0.8,
-            		smooth: false,
-            		hideHover: true
-            	});
-
-    });
+                    var m3 = new Morris.Bar({
+                  		// ID of the element in which to draw the chart.
+                  		element: 'bar-chart',
+                  		// Chart data records -- each entry in this array corresponds to a point on
+                  		// the chart.
+                  		data: barObj,
+                  		xkey: 'y',
+                  		ykeys: ['a', 'b'],
+                  		labels: ['Revenue','Spend'],
+                      barColors: ['#1CAF9A','#DF706D'],
+                  		lineWidth: '1px',
+                  		fillOpacity: 0.8,
+                  		smooth: false,
+                  		hideHover: true
+                  	});  //end bar graph
+              });  //end if
+    }); // end doc ready
   </script>
 
   </body>
