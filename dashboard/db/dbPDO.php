@@ -58,9 +58,11 @@ $first_day_last_month = $d->format('Y-m-d');
 function createTableDataSQL($sqlcall){
 
   $results = querydb($sqlcall);
+  $key = key($results[0]);
+
   $buffer  = "<thead><tr>";
 
-  if(!empty($results)){
+  if($results && $results[0]->$key != NULL){
       //build up data from results
       foreach ($results[0] as $key => $value) { $buffer .="<th>".$key."</th>"; }
       $buffer .= "</tr></thead><tbody>";
@@ -71,9 +73,10 @@ function createTableDataSQL($sqlcall){
       $buffer .= "</tbody>"; //Close the table in HTML
 
   } else {
-      $buffer .= "<th> No data avaliable.  Please select a date range. <th>";
+      $buffer .= "<th></th></tr></thead><tbody><tr><p style='color:#EE0A15'>NO DATA AVAILABLE.  PLEASE SELECT NEW DATE RANGE OR NEW GAME.</p></tr></tbody>";
   }
-
+  //$key = key($results[0]);
+  //var_dump($key);
   echo $buffer;
 }
 
