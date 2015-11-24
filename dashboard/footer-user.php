@@ -119,6 +119,7 @@
                   		hideHover: true
                   	});  //end bar graph
               });  //end if
+            };
     }); // end doc ready
   </script>
 
