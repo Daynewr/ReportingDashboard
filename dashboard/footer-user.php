@@ -28,8 +28,53 @@
 
   <script>
     jQuery(document).ready(function() {
-
       "use strict";
+          try{
+              var chartObj = <?php echo $results_gplayinstalls_JSON; ?>;
+              /***** MORRIS CHARTS *****/
+              if(jQuery.isArray(chartObj) && chartObj.length > 0){
+                    var m1 = new Morris.Line({
+                            // ID of the element in which to draw the chart.
+                            element: 'line-chart',
+                            // Chart data records -- each entry in this array corresponds to a point on
+                            // the chart.
+                            data: chartObj,
+                            xkey: 'y',
+                            ykeys: ['a', 'b', 'c'],
+                            labels: ['Current Installs', 'Daily Installs', 'Daily Uninstalls'],
+                            lineColors: ['#428BCA', '#1CAF9A', '#D9534F'],
+                            lineWidth: '2px',
+                            hideHover: true
+                          });
+              } else {
+                  jQuery('#line-chart').html('<br /><p style="color:red"> NO RECENT INSTALL DATA IS AVAILABLE FOR THIS GAME.</p>');
+              }
+
+              var barObj = <?php echo $results_spend_rev_chart_JSON ?>;
+              /***** BAR CHARTS *****/
+              if(jQuery.isArray(barObj) && barObj.length > 0){
+                      var m3 = new Morris.Bar({
+                            // ID of the element in which to draw the chart.
+                            element: 'bar-chart',
+                            // Chart data records -- each entry in this array corresponds to a point on
+                            // the chart.
+                            data: barObj,
+                            xkey: 'y',
+                            ykeys: ['a', 'b'],
+                            labels: ['Revenue','Spend'],
+                            barColors: ['#1CAF9A','#DF706D'],
+                            lineWidth: '1px',
+                            fillOpacity: 0.8,
+                            smooth: false,
+                            hideHover: true
+                          });
+              } else {
+                  jQuery('#bar-chart').html('<br /><p style="color:red"> NO RECENT REVENUE/SPEND DATA IS AVAILABLE FOR THIS GAME.</p>');
+              }
+
+            } catch(e) {
+                console.log('Error: '+ e);
+            }
 
       $('.nav a').filter(function(){
           return this.href==location.href
@@ -81,41 +126,6 @@
           }
             return false;
         });
-
-              var chartObj = <?php echo $results_gplayinstalls_JSON; ?>;
-              /***** MORRIS CHARTS *****/
-              var m1 = new Morris.Line({
-                // ID of the element in which to draw the chart.
-                element: 'line-chart',
-                // Chart data records -- each entry in this array corresponds to a point on
-                // the chart.
-                data: chartObj,
-                xkey: 'y',
-                ykeys: ['a', 'b', 'c'],
-                labels: ['Current Installs', 'Daily Installs', 'Daily Uninstalls'],
-                lineColors: ['#428BCA', '#1CAF9A', '#D9534F'],
-                lineWidth: '2px',
-                hideHover: true
-              });
-
-              var barObj = <?php echo $results_spend_rev_chart_JSON ?>;
-
-              var m3 = new Morris.Bar({
-            		// ID of the element in which to draw the chart.
-            		element: 'bar-chart',
-            		// Chart data records -- each entry in this array corresponds to a point on
-            		// the chart.
-            		data: barObj,
-            		xkey: 'y',
-            		ykeys: ['a', 'b'],
-            		labels: ['Revenue','Spend'],
-                barColors: ['#1CAF9A','#DF706D'],
-            		lineWidth: '1px',
-            		fillOpacity: 0.8,
-            		smooth: false,
-            		hideHover: true
-            	});
-
     });
   </script>
 
