@@ -13,7 +13,6 @@
       </div>
       <?php
         include('selection.php');
-        include('db/chart-db.php');
         $top_array = querydb('CALL DASH_main_top('.$_SESSION['game'].');');
       ?>
     </div>

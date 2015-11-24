@@ -8,6 +8,7 @@ if(isset($_POST['refresh'])){
    $_SESSION['start_date'] = $start_date;
    $_SESSION['end_date'] = $end_date;
 }
+    include('db/chart-db.php');
 ?>
 
 <!--select game for specific data-->
