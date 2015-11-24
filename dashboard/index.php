@@ -1,6 +1,5 @@
 <?php
     include('header.php');
-    $top_array = querydb('CALL DASH_main_top('.$_SESSION['game'].');');
  ?>
 
 
@@ -13,7 +12,10 @@
           <li class="active">Dashboard</li>
         </ol>
       </div>
-      <?php include('selection.php'); ?>
+      <?php
+        include('selection.php');
+        $top_array = querydb('CALL DASH_main_top('.$_SESSION['game'].');');    
+      ?>
     </div>
     <div class="contentpanel">
 
