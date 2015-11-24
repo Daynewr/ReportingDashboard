@@ -83,7 +83,7 @@
         });
 
         //only load charts on index page
-        if($('.main-page')){
+        if($('div').hasClass('.main-page')){
               $(function(){
                     var chartObj = <?php echo $results_gplayinstalls_JSON; ?>;
                     /***** MORRIS CHARTS *****/
