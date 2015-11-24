@@ -17,11 +17,7 @@ $results_gplayinstalls_JSON = json_encode($results_gplayinstalls);
 
 // SPEND VS REVENUE CHART
 //get spend and revenue daily number get_spend_rev_data(game_id);
-if(!isset($_SESSION['game'])) {
-  $q_table3 = $db->prepare('call get_spend_rev_data(1);');
-}else {
-  $q_table3 = $db->prepare('call get_spend_rev_data('.$_SESSION['game'].');');
-}
+$q_table3 = $db->prepare('call get_spend_rev_data('.$_SESSION['game'].');');
 $q_table3->execute();
 $results_spend_rev_chart = $q_table3->fetchAll(PDO::FETCH_CLASS);
 
