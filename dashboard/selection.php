@@ -13,6 +13,7 @@ if(isset($_POST['refresh'])){
 
 <!--select game for specific data-->
 <div style="margin-top: 20px;" class="styled-select">
+  <p style="color:red"><?php echo (isset($_SESSION['game']) && $_SESSION['game'] == 2 ? '(iOS data will be avaliable in December.)': ''); ?></p>
 <form method="post" action="#" name="data">
   <select name="game" id="selectBoxId" style="margin-right: 10px;">
     <option value="1">RuneGuardian Android</option>
