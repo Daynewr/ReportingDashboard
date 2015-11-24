@@ -202,20 +202,24 @@
 <script>
     $(document).ready(function(){
         var chartObj = <?php echo $results_gplayinstalls_JSON; ?>;
-        /***** MORRIS CHARTS *****/
-        var m1 = new Morris.Line({
-          // ID of the element in which to draw the chart.
-          element: 'line-chart',
-          // Chart data records -- each entry in this array corresponds to a point on
-          // the chart.
-          data: chartObj,
-          xkey: 'y',
-          ykeys: ['a', 'b', 'c'],
-          labels: ['Current Installs', 'Daily Installs', 'Daily Uninstalls'],
-          lineColors: ['#428BCA', '#1CAF9A', '#D9534F'],
-          lineWidth: '2px',
-          hideHover: true
-        });
+        if(chartObj !== NULL){
+            /***** MORRIS CHARTS *****/
+            var m1 = new Morris.Line({
+              // ID of the element in which to draw the chart.
+              element: 'line-chart',
+              // Chart data records -- each entry in this array corresponds to a point on
+              // the chart.
+              data: chartObj,
+              xkey: 'y',
+              ykeys: ['a', 'b', 'c'],
+              labels: ['Current Installs', 'Daily Installs', 'Daily Uninstalls'],
+              lineColors: ['#428BCA', '#1CAF9A', '#D9534F'],
+              lineWidth: '2px',
+              hideHover: true
+            });
+        } else {
+          $('#line-chart').html('<p style="color:red"> NO DATA AVAILABLE FOR THIS GAME.</p>');
+        }
 
         var barObj = <?php echo $results_spend_rev_chart_JSON ?>;
 
