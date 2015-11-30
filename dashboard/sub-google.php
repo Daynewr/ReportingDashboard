@@ -37,7 +37,7 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <div class="clearfix mb30"></div>
-            <h3>Google User/Device Installs</h3>
+            <h3>Google Country (date)</h3>
             <div><p></p></div>
             <br />
             <div class="table-responsive">
