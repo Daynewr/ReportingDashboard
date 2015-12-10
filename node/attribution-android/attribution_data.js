@@ -115,9 +115,9 @@ module.exports = {
             case 'Kochava': 
             {
                 init(parameters);
-                parameters.event_name = '_Install';
+                parameters.event_name = 'Launch';
                 kochava.enqueue_get_event_data(parameters);
-                kochava.process_queue(parameters, true, 'get_LAUNCH_event_inserts');
+                kochava.process_queue(parameters, false, 'get_LAUNCH_event_inserts');
                 break;
             }
         }
@@ -244,8 +244,8 @@ module.exports = {
         }
     },
     
-    /*
-    get_attribution_data: function(parameters){
+    
+    get_app_data: function(parameters){
         switch (parameters.attributionService){
             case 'Kochava': 
             {
@@ -257,7 +257,7 @@ module.exports = {
                 parameters.account = '1843';
                 parameters.api_key = 'A620E8F1-00FB-42F2-925B-6A754324976A';
                 kochava.enqueue_get_apps(parameters);
-
+/*
                 // specify a date range
                 parameters.start_date = parameters.start;
                 parameters.end_date = parameters.end;
@@ -311,13 +311,12 @@ module.exports = {
 
                     parameters.event_name = 'REVENUE';
                     kochava.enqueue_get_event_data(parameters);
-                   
+*/                   
                 kochava.process_queue(parameters);
                 break;
             }
         }
     },   
-    */
 };
 
 function init(parameters){

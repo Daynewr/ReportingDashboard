@@ -7,7 +7,7 @@ var gcloud = require('gcloud')({
 });
 
 var attribution_android = require('./attribution-android/attribution_data');
-var attribution_ios = require('./attribution-android/attribution_data');
+var attribution_ios = require('./attribution-ios/attribution_data');
 
 // view JS files;
 var index = require ('./views/index');
@@ -143,18 +143,52 @@ app.get('//get_REVENUE_event_report_android', function(req, res){
     attribution_android.get_REVENUE_event_report(parameters);
 });
 
+
+
+
+/*******************************************************
+ * 
+ * iOS calls beneath here
+ * 
+ *******************************************************/
+
 /*
+ * DB INSERT STATEMENTS
+ */
+app.get('//get_campaign_summary_inserts_ios', function(req, res){
+    var parameters = {};
+    initParameters(req, res, parameters);
+    attribution_ios.get_campaign_summary_inserts(parameters);
+});
+
+app.get('//get_campaign_install_inserts_ios', function(req, res){
+    var parameters = {};
+    initParameters(req, res, parameters);
+    attribution_ios.get_campaign_install_inserts(parameters);
+});
+
+app.get('//get_organic_install_event_inserts_ios', function(req, res){
+    var parameters = {};
+    initParameters(req, res, parameters);
+    attribution_ios.get_organic_install_event_inserts(parameters);
+});
+
+
+
+
+//korune-guardian55ef590c8f1d6 
+
 app.get('//get_app_data', function(req, res){
     var parameters = {};
 
     initParameters(req, res, parameters);
     
     //...
-    attribution_android.get_attribution_data(parameters);
+    attribution_android.get_app_data(parameters);
 
     //mediation.get_mediation_data(parameters);
 });
-*/
+
 
 
 app.get('//doMagic', function(req, res){

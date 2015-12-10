@@ -61,7 +61,7 @@ module.exports = {
     },
     get_organic_install_event_inserts: function(responseBody, app_id){
         var buffer = '';
-         
+        
         responseBody[0].Data.forEach(function (element, index, array){
             if(element.eng_acqu == false){
                 buffer += "call add_kochava_campaign_installs('"+
@@ -82,8 +82,8 @@ module.exports = {
                         "','"+
                         "','"+
                         element.device_ver+"','"+
-                        element.geo_code+"','"+
-                        element.adid+"','"+
+                        element.country_code+"','"+
+                        element.click_id+"','"+
                         element.android_id+"','"+
                         element.imei+"','"+
                         element.udid+"','"+
